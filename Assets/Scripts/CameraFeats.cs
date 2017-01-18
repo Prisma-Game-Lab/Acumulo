@@ -1,23 +1,29 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class CameraFeats : MonoBehaviour
 {
+    #region variables
 
+    public float ZoomSpeed;
+
+    private float _initialSize;
+    private float _targetSize;
+    private bool _changeSize;
+    private float _zoomFactor;
+
+    #endregion
+
+
+    /// <summary>
+    /// Performs a zoom out
+    /// </summary>
     public void ZoomOut()
     {
-        float size = gameObject.GetComponent<Camera>().orthographicSize;
-        float targetSize = size+10;
-        float t = .0f;
-        float zoomspeed = 1;
+        _initialSize = gameObject.GetComponent<Camera>().orthographicSize;
+        _targetSize = _initialSize + 10;
+        _zoomFactor = 0f;
 
-        while (t < 1)
-        {
-            t += Time.deltaTime / 5;
-            print(t);
-            gameObject.GetComponent<Camera>().orthographicSize = Mathf.MoveTowards(size, targetSize, t);
-            
-        }
+        _changeSize = true;
     }
 
 
@@ -27,7 +33,17 @@ public class CameraFeats : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
-	}
+	void Update ()
+    {
+        if(_changeSize)
+        {
+            _zoomFactor += Time.deltaTime * ZoomSpeed;
+            Camera.main.orthographicSize = Mathf.MoveTowards(_initialSize, _targetSize, _zoomFactor);
+
+            if(_zoomFactor == 1)
+            {
+                _changeSize = false;
+            }
+        }
+    }
 }

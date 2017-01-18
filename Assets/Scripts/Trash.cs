@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class Trash : MonoBehaviour {
-
-	// Use this for initialization
+public class Trash : MonoBehaviour
+{
 
     void OnTriggerEnter2D(Collider2D other)
     {
