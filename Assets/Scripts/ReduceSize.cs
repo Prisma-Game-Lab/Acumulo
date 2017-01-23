@@ -4,23 +4,23 @@ public class ReduceSize : MonoBehaviour
 {
     #region variables
 
-    public float ZoomSpeed;
+    public float ChangeSpeed;
 
     private Vector3 _initialSize;
     private Vector3 _targetSize;
     private bool _changeSize;
-    private float _zoomFactor;
+    private float _sizeFactor;
 
     #endregion
     
     /// <summary>
-    /// Performs a zoom out
+    /// Config the size change
     /// </summary>
     public void ChangeSize()
     {
         _initialSize = gameObject.transform.localScale;
         _targetSize = new Vector3(_initialSize.x - 1, _initialSize.y - 1, _initialSize.z - 1);
-        _zoomFactor = 0f;
+        _sizeFactor = 0f;
 
         _changeSize = true;
     }
@@ -37,10 +37,10 @@ public class ReduceSize : MonoBehaviour
     {
         if (_changeSize)
         {
-            _zoomFactor += Time.deltaTime * ZoomSpeed;
-            gameObject.transform.localScale = Vector3.Lerp(_initialSize, _targetSize, _zoomFactor);
+            _sizeFactor += Time.deltaTime * ChangeSpeed;
+            gameObject.transform.localScale = Vector3.Lerp(_initialSize, _targetSize, _sizeFactor);
 
-            if (_zoomFactor == 1)
+            if (_sizeFactor == 1)
             {
                 _changeSize = false;
             }

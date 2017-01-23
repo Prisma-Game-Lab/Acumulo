@@ -43,8 +43,8 @@ public class Player : MonoBehaviour
         //gameObject.GetComponentInChildren<SpriteRenderer>().sprite = _image;
         //gameObject.GetComponent<CircleCollider2D>().radius = _image.bounds.extents.x / 2;
 
-        // Camera.main.GetComponent<CameraFeats>().ZoomOut();
-        obstacle.GetComponent<ReduceSize>().ChangeSize();
+        Camera.main.GetComponent<CameraFeats>().ZoomOut();
+        //obstacle.GetComponent<ReduceSize>().ChangeSize();
     }
 
 	// Update is called once per frame
