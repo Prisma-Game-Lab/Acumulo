@@ -8,7 +8,6 @@ public class Movement : MonoBehaviour
 
     public float Speed;
     public float SmoothTime;
-    public float ExtraMovement;
 
     private Vector3 _velocity;
     private Vector3 _targetPosition;
@@ -33,28 +32,30 @@ public class Movement : MonoBehaviour
         target.z = transform.position.z;
 	    transform.position = Vector3.MoveTowards(transform.position, target, Speed * Time.deltaTime);
 #elif INPUT_TECLADO
+
+        _targetPosition = transform.position;
         if (Input.GetKey(KeyCode.W))
         {
-            _targetPosition += Vector3.up * Time.deltaTime * Speed;//transform.Translate(Vector3.up * Time.deltaTime * Speed);
+            _targetPosition += Vector3.up * Time.deltaTime * Speed;
+            _lastDir += _targetPosition - transform.position;
         }
         if (Input.GetKey(KeyCode.A))
         {
-            _targetPosition += Vector3.left * Time.deltaTime * Speed;//transform.Translate(Vector3.left * Time.deltaTime * Speed);
+            _targetPosition += Vector3.left * Time.deltaTime * Speed;
+            _lastDir += _targetPosition - transform.position;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            _targetPosition += Vector3.down * Time.deltaTime * Speed;//transform.Translate(Vector3.down * Time.deltaTime * Speed);
+            _targetPosition += Vector3.down * Time.deltaTime * Speed;
+            _lastDir += _targetPosition - transform.position;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            _targetPosition += Vector3.right * Time.deltaTime * Speed;//transform.Translate(Vector3.right * Time.deltaTime * Speed);
+            _targetPosition += Vector3.right * Time.deltaTime * Speed;
+            _lastDir += _targetPosition - transform.position;
         }
-        //_lastDir *= ExtraMovement;
-        _lastDir = _targetPosition;
-        //transform.position = Vector3.Lerp(transform.position, _targetPosition, Speed * Time.deltaTime);
-        //transform.position = Vector3.SmoothDamp(transform.position, _targetPosition, ref _velocity, SmoothTime);
-        transform.Translate(_lastDir * Time.deltaTime * Speed);
-        //GetComponent<Rigidbody2D>().MovePosition(transform.position + _targetPosition);
+        _lastDir.Normalize();
+        transform.position = Vector3.SmoothDamp(transform.position, _targetPosition + _lastDir, ref _velocity, SmoothTime);
 #endif
     }
 
