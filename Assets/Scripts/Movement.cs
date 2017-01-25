@@ -52,8 +52,9 @@ public class Movement : MonoBehaviour
         //_lastDir *= ExtraMovement;
         _lastDir = _targetPosition;
         //transform.position = Vector3.Lerp(transform.position, _targetPosition, Speed * Time.deltaTime);
-        transform.position = Vector3.SmoothDamp(transform.position, _targetPosition, ref _velocity, SmoothTime);
-        //transform.Translate(_lastDir * Time.deltaTime * Speed);
+        //transform.position = Vector3.SmoothDamp(transform.position, _targetPosition, ref _velocity, SmoothTime);
+        transform.Translate(_lastDir * Time.deltaTime * Speed);
+        //GetComponent<Rigidbody2D>().MovePosition(transform.position + _targetPosition);
 #endif
     }
 
