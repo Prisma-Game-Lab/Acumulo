@@ -1,5 +1,5 @@
 ﻿//#define INPUT_MOUSE
-#define INPUT_TECLADO
+#define INPUT_TECLADO_CONTROLE
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -24,34 +24,25 @@ public class Movement : MonoBehaviour
     }
 	
 	// Update is called once per frame
-	void Update ()
+	void FixedUpdate ()
 	{
 #if INPUT_MOUSE
         Vector3 target;
         target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         target.z = transform.position.z;
 	    transform.position = Vector3.MoveTowards(transform.position, target, Speed * Time.deltaTime);
-#elif INPUT_TECLADO
+#elif INPUT_TECLADO_CONTROLE
+
+        float h = Input.GetAxisRaw("Horizontal");
+        float v = Input.GetAxisRaw("Vertical");
+
+        Vector3 inputMove = new Vector3(h, v, 0);
 
         _targetPosition = transform.position;
-        if (Input.GetKey(KeyCode.W))
+
+        if((h != 0) || (v != 0))
         {
-            _targetPosition += Vector3.up * Time.deltaTime * Speed;
-            _lastDir += _targetPosition - transform.position;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            _targetPosition += Vector3.left * Time.deltaTime * Speed;
-            _lastDir += _targetPosition - transform.position;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            _targetPosition += Vector3.down * Time.deltaTime * Speed;
-            _lastDir += _targetPosition - transform.position;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            _targetPosition += Vector3.right * Time.deltaTime * Speed;
+            _targetPosition += inputMove * Time.deltaTime * Speed;
             _lastDir += _targetPosition - transform.position;
         }
         _lastDir.Normalize();
