@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     #region variables
 
     public GameObject obstacle;
-    public Text scoreText; 
+
     private float _score;
 
     #endregion
@@ -24,7 +23,6 @@ public class Player : MonoBehaviour
     public void ScoredTrashTriggered(float score)
     {
         _score += score;
-        scoreText.text = "Score: " + _score;
         if (_score >= 1500)
         {
             ChangeLevel("player2");
