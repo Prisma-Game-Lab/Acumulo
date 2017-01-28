@@ -1,20 +1,29 @@
 ﻿using UnityEngine;
 
-public class Trash : MonoBehaviour
+public class Trash : Obstacle
 {
+    public int value;
+    public float deathtime;
 
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<Movement>().Grow();
-            other.gameObject.GetComponent<Player>().ScoredTrashTriggered(50);
-            Destroy(this.gameObject);
+            other.gameObject.GetComponent<Player>().ScoredTrashTriggered(value);
+            die();
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
+    void die()
+    {
+        Destroy(this.gameObject);
+    }
+    void Awake()
+    {
+        Invoke("die", deathtime);
+    }
+    // Update is called once per frame
+    void Update () {
 	
 	}
 }
