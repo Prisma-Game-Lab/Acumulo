@@ -8,7 +8,10 @@ public class Movement : MonoBehaviour
 
     public float Speed;
     public float SmoothTime;
-
+    public float bioshrinktime;
+    public float bacteriaslowtime;
+    public float slowfactor;
+    public float growfactor;
     private Vector3 _velocity;
     private Vector3 _targetPosition;
     private Vector3 _lastDir;
@@ -22,10 +25,10 @@ public class Movement : MonoBehaviour
         _velocity = Vector3.zero;
         _targetPosition = transform.position;
     }
-	
-	// Update is called once per frame
-	void FixedUpdate ()
-	{
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
 #if INPUT_MOUSE
         Vector3 target;
         target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -40,7 +43,7 @@ public class Movement : MonoBehaviour
 
         _targetPosition = transform.position;
 
-        if((h != 0) || (v != 0))
+        if ((h != 0) || (v != 0))
         {
             _targetPosition += inputMove * Time.deltaTime * Speed;
             _lastDir += _targetPosition - transform.position;
@@ -55,7 +58,29 @@ public class Movement : MonoBehaviour
     /// </summary>
     public void Grow()
     {
-        Vector3 newSize = new Vector3(transform.localScale.x+1,transform.localScale.y+1,transform.localScale.z);
+        Vector3 newSize = new Vector3(transform.localScale.x * growfactor, transform.localScale.y * growfactor, transform.localScale.z);
         transform.localScale = newSize;
+    }
+    /// <summary>
+    /// Reduce the player's size
+    /// </summary>
+    public void Shrink()
+    {
+        Vector3 newSize = new Vector3(transform.localScale.x / growfactor, transform.localScale.y / growfactor, transform.localScale.z);
+        transform.localScale = newSize;
+    }
+    public void Bio()
+    {
+        Invoke("Shrink", bioshrinktime);
+    }
+    public void Slow()
+    {
+        Speed /= slowfactor;
+        Invoke("Fast", bacteriaslowtime);
+
+    }
+    public void Fast()
+    {
+        Speed *= slowfactor;
     }
 }
