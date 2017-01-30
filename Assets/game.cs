@@ -11,13 +11,17 @@ public class game : MonoBehaviour {
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+    void End()
+    {
+        Time.timeScale = 0f;
+    }
 	void Start () {
-        Invoke("restart", time);
+        Invoke("End", time);
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        timeText.text = "Time: " +(time- Time.timeSinceLevelLoad);
+        timeText.text = "Time: " +(int)(time- Time.timeSinceLevelLoad);
     }
 }
