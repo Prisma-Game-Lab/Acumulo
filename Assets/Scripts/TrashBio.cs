@@ -5,6 +5,11 @@ public class TrashBio : Obstacle
     public int value;
     public float deathtime;
 
+    void Start()
+    {
+        gameObject.GetComponentInChildren<Animator>().speed = 0.25f;
+    }
+
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Player")

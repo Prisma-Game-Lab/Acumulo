@@ -5,7 +5,12 @@ public class Trash : Obstacle
     public int value;
     public float deathtime;
 
-    void OnCollisionEnter2D(Collision2D other)
+    void Start()
+    {
+        gameObject.GetComponent<Animator>().speed = .25f;
+    }
+
+void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Player")
         {
@@ -23,7 +28,8 @@ public class Trash : Obstacle
         Invoke("die", deathtime);
     }
     // Update is called once per frame
-    void Update () {
-	
-	}
+    void Update ()
+    {
+
+    }
 }
