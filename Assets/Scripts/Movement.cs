@@ -9,10 +9,8 @@ public class Movement : MonoBehaviour
 
     public float Speed;
     public float SmoothTime;
-    public float bioshrinktime;
     public float bacteriaslowtime;
     public float slowfactor;
-    public float growfactor;
     private Vector3 _velocity;
     private Vector3 _targetPosition;
     private Vector3 _lastDir;
@@ -56,26 +54,6 @@ public class Movement : MonoBehaviour
 #endif
     }
 
-    /// <summary>
-    /// Increases the player's size
-    /// </summary>
-    public void Grow()
-    {
-        Vector3 newSize = new Vector3(transform.localScale.x * growfactor, transform.localScale.y * growfactor, transform.localScale.z);
-        transform.localScale = newSize;
-    }
-    /// <summary>
-    /// Reduce the player's size
-    /// </summary>
-    public void Shrink()
-    {
-        Vector3 newSize = new Vector3(transform.localScale.x / growfactor, transform.localScale.y / growfactor, transform.localScale.z);
-        transform.localScale = newSize;
-    }
-    public void Bio()
-    {
-        Invoke("Shrink", bioshrinktime);
-    }
     public void Slow()
     {
         Speed /= slowfactor;

@@ -6,26 +6,12 @@ public class Barco : Obstacle
     public float deathtime;
     public float speed;
     Transform player;
-    //ta pegando a colisao do filho tbm aparentemente
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            //other.gameObject.GetComponent<Movement>().Grow();
-            other.gameObject.GetComponent<Player>().ScoredTrashTriggered(value);
-            //die();
-        }
-    }
-    
-    
-    void die()
-    {
-        Destroy(this.gameObject);
-    }
+
     void Awake()
     {
         player = GameObject.FindWithTag("Player").transform;
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -38,4 +24,21 @@ public class Barco : Obstacle
             transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
         }
     }
+
+    void die()
+    {
+        Destroy(this.gameObject);
+    }
+
+    //ta pegando a colisao do filho tbm aparentemente
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            //other.gameObject.GetComponent<Movement>().Grow();
+            //other.gameObject.GetComponent<Player>().ScoredTrashTriggered(value);
+            //die();
+        }
+    }
+
 }

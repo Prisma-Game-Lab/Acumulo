@@ -5,52 +5,41 @@ public class Player : MonoBehaviour
 {
     #region variables
 
-    public GameObject obstacle;
-    public Text scoreText; 
-    private float _score;
+    public float bioshrinktime = 1;
+    public float growfactor = 1;
 
     #endregion
 
     // Use this for initialization
     void Start ()
 	{
-	    _score = 0;
+
+	}
+
+	// Update is called once per frame
+	void Update ()
+    {
+	    
 	}
 
     /// <summary>
-    /// Called when trash was collected
+    /// Increases the player's size
     /// </summary>
-    /// <param name="score"> the trash's value </param>
-    public void ScoredTrashTriggered(float score)
+    public void Grow()
     {
-        _score += score;
-        scoreText.text = "Score: " + _score;
-        if (_score >= 1500)
-        {
-            ChangeLevel("player2");
-        }
-        else if (_score >= 1000)
-        {
-            ChangeLevel("player2");
-        }
-        else if (_score >= 100)
-        {
-            ChangeLevel("player2");
-        }
+        Vector3 newSize = new Vector3(transform.localScale.x * growfactor, transform.localScale.y * growfactor, transform.localScale.z);
+        transform.localScale = newSize;
     }
-
-    void ChangeLevel(string name)
+    /// <summary>
+    /// Reduce the player's size
+    /// </summary>
+    public void Shrink()
     {
-        //Sprite _image = Resources.Load<Sprite>("Sprites/" + name);
-        //gameObject.GetComponentInChildren<SpriteRenderer>().sprite = _image;
-        //gameObject.GetComponent<CircleCollider2D>().radius = _image.bounds.extents.x / 2;
-
-        Camera.main.GetComponent<CameraFeats>().ZoomOut();
-        //obstacle.GetComponent<ReduceSize>().ChangeSize();
+        Vector3 newSize = new Vector3(transform.localScale.x / growfactor, transform.localScale.y / growfactor, transform.localScale.z);
+        transform.localScale = newSize;
     }
-
-	// Update is called once per frame
-	void Update () {
-	    
-	}
+    public void Bio()
+    {
+        Invoke("Shrink", bioshrinktime);
+    }
 }
