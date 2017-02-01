@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - GM
+  - UI
   layers:
   - Default
   - TransparentFX
@@ -44,9 +46,12 @@ TagManager:
   - name: background
     uniqueID: 3248994105
     locked: 0
+  - name: Obstacle
+    uniqueID: 218562893
+    locked: 0
   - name: Player
     uniqueID: 4145579041
     locked: 0
-  - name: Obstacle
-    uniqueID: 218562893
+  - name: UI
+    uniqueID: 1038280049
     locked: 0
