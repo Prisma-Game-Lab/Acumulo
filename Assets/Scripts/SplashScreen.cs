@@ -36,12 +36,12 @@ public class SplashScreen : MonoBehaviour {
             _logo.color = color;
             if (color.a <= 0)
             {
-                SceneManager.LoadScene("DevScene");
+                SceneManager.LoadScene("Menu");
             }
         }
         if(Input.anyKeyDown)
         {
-            SceneManager.LoadScene("DevScene");
+            SceneManager.LoadScene("Menu");
         }
 	}
 }
