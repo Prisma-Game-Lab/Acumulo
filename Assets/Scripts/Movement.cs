@@ -1,5 +1,6 @@
 ﻿//#define INPUT_MOUSE
 #define INPUT_TECLADO_CONTROLE
+using System.Reflection;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -27,7 +28,7 @@ public class Movement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
 #if INPUT_MOUSE
         Vector3 target;
@@ -48,7 +49,9 @@ public class Movement : MonoBehaviour
             _targetPosition += inputMove * Time.deltaTime * Speed;
             _lastDir += _targetPosition - transform.position;
         }
-        _lastDir.Normalize();
+
+        _lastDir = Vector3.ClampMagnitude(_lastDir, 0.5f);
+
         transform.position = Vector3.SmoothDamp(transform.position, _targetPosition + _lastDir, ref _velocity, SmoothTime);
 #endif
     }
