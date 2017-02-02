@@ -15,7 +15,11 @@ public class Trash : Obstacle
     void Start()
     {
         gameObject.GetComponent<Animator>().speed = .25f;
-        _gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameManager>();
+        GameObject obj = GameObject.FindGameObjectWithTag("GM");
+        if(obj)
+        {
+            _gm = obj.GetComponent<GameManager>();
+        }
     }
 
     // Update is called once per frame

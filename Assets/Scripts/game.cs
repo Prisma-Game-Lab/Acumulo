@@ -13,7 +13,8 @@ public class game : MonoBehaviour {
     }
     void End()
     {
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
+        SceneManager.LoadScene(5);
     }
 	void Start () {
         Invoke("End", time);

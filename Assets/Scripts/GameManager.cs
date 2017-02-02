@@ -39,7 +39,11 @@ public class GameManager : MonoBehaviour {
 
     void OnLevelWasLoaded()
     {
-        _scoreText = GameObject.FindGameObjectWithTag("UI").transform.GetChild(0).GetComponent<Text>();
+        GameObject ui = GameObject.FindGameObjectWithTag("UI");
+        if (ui)
+        {
+            _scoreText = ui.transform.GetChild(0).GetComponent<Text>();
+        }
     }
 
     /// <summary>
@@ -50,15 +54,16 @@ public class GameManager : MonoBehaviour {
     {
         _score += score;
         _scoreText.text = "Score: " + _score;
-        if (_score >= 1500)
+        if (_score == 1500)
         {
             ChangeLevel("player2");
         }
-        else if (_score >= 1000)
+        else if (_score == 200)
         {
-            ChangeLevel("player2");
+            //ChangeLevel("player2");
+            SceneManager.LoadScene(4);
         }
-        else if (_score >= 100)
+        else if (_score == 100)
         {
             ChangeLevel("player2");
         }

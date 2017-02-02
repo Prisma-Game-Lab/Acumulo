@@ -20,7 +20,7 @@ public class CameraFeats : MonoBehaviour
     public void ZoomOut()
     {
         _initialSize = gameObject.GetComponent<Camera>().orthographicSize;
-        _targetSize = _initialSize + 10;
+        _targetSize = _initialSize + 1;
         _zoomFactor = 0f;
 
         _changeSize = true;

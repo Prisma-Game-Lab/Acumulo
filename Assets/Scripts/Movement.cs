@@ -48,7 +48,7 @@ public class Movement : MonoBehaviour
             _lastDir += _targetPosition - transform.position;
         }
 
-        _lastDir = Vector3.ClampMagnitude(_lastDir, 0.5f);
+        _lastDir = Vector3.ClampMagnitude(_lastDir, 0.2f);
 
         transform.position = Vector3.SmoothDamp(transform.position, _targetPosition + _lastDir, ref _velocity, SmoothTime);
 #endif
