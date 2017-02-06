@@ -3,12 +3,17 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
+using System;
 
 public class GameManager : MonoBehaviour {
 
     private Text _scoreText;
     private float _score;
 
+    static private GameObject _pauseCanvas;
+    static private float _volume;
+
+    // Singleton
     static public GameManager instance = null;
 
     private void Awake()
@@ -29,14 +34,45 @@ public class GameManager : MonoBehaviour {
     void Start ()
     {
         _score = 0;
+        _volume = GetComponent<AudioSource>().volume;
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-	
+	    if(Input.GetButtonDown("Pause"))
+        {
+            Pause();
+        }
 	}
 
+    /// <summary>
+    /// Pause/Unpause game
+    /// </summary>
+    public void Pause()
+    {
+        if (!_pauseCanvas)
+        {
+            _pauseCanvas = Instantiate(Resources.Load<GameObject>("Prefabs/PauseCanvas"));
+            _pauseCanvas.SetActive(true);
+            Time.timeScale = 0;
+        }
+        else
+        {
+            _pauseCanvas.SetActive(!_pauseCanvas.activeSelf);
+            Time.timeScale = (_pauseCanvas.activeSelf) ? 0: 1;
+        }
+    }
+
+    public void ChangeVolume(float value)
+    {
+        Debug.Log(value);
+        _volume = value;
+    }
+
+    /// <summary>
+    /// Scene load callback
+    /// </summary>
     void OnLevelWasLoaded()
     {
         GameObject ui = GameObject.FindGameObjectWithTag("UI");
@@ -44,6 +80,7 @@ public class GameManager : MonoBehaviour {
         {
             _scoreText = ui.transform.GetChild(0).GetComponent<Text>();
         }
+        Time.timeScale = 1;
     }
 
     /// <summary>
