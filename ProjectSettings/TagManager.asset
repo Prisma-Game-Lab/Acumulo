@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GM
   - UI
+  - Bounds
   layers:
   - Default
   - TransparentFX
