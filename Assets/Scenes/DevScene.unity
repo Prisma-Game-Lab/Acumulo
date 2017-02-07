@@ -283,14 +283,13 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 408836, guid: c0a8296e57c92e74d9e664b0b5f5a090, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11405666, guid: c0a8296e57c92e74d9e664b0b5f5a090, type: 2}
       propertyPath: Player
       value: 
       objectReference: {fileID: 1477850753}
-    m_RemovedComponents:
-    - {fileID: 11445058, guid: c0a8296e57c92e74d9e664b0b5f5a090, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0a8296e57c92e74d9e664b0b5f5a090, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &639564236
@@ -563,7 +562,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 436736, guid: eca50c6a602c9dd44ad52d749797b776, type: 2}
       propertyPath: m_RootOrder
-      value: 16
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 11423818, guid: eca50c6a602c9dd44ad52d749797b776, type: 2}
       propertyPath: speed
@@ -838,7 +837,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 454728, guid: 652eac406d77e434691fb5b5a7f697d8, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 109374, guid: 652eac406d77e434691fb5b5a7f697d8, type: 2}
       propertyPath: m_Name
@@ -1120,7 +1119,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!1001 &1750089374
 Prefab:
   m_ObjectHideFlags: 0
@@ -1158,7 +1157,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 454728, guid: 652eac406d77e434691fb5b5a7f697d8, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 109374, guid: 652eac406d77e434691fb5b5a7f697d8, type: 2}
       propertyPath: m_Name
@@ -1388,7 +1387,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 454728, guid: 652eac406d77e434691fb5b5a7f697d8, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 454728, guid: 652eac406d77e434691fb5b5a7f697d8, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -1442,7 +1441,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 450072, guid: e82676efa24edd74e9d286218247680a, type: 2}
       propertyPath: m_RootOrder
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 11421122, guid: e82676efa24edd74e9d286218247680a, type: 2}
       propertyPath: intensity
