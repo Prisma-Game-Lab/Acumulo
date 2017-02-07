@@ -11,9 +11,10 @@ GameObject:
   - 50: {fileID: 5041516}
   - 114: {fileID: 11469752}
   - 114: {fileID: 11417984}
-  - 212: {fileID: 21248834}
-  - 95: {fileID: 9527780}
-  - 60: {fileID: 6003468}
+  - 212: {fileID: 21240046}
+  - 95: {fileID: 9591212}
+  - 60: {fileID: 6076350}
+  - 114: {fileID: 11474256}
   m_Layer: 0
   m_Name: "Sacola Pl\xE1stica"
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 109374}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.89, y: 5.23, z: 0}
+  m_LocalPosition: {x: -6.06, y: 3.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -51,7 +52,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &6003468
+--- !u!60 &6076350
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -73,7 +74,7 @@ PolygonCollider2D:
       - {x: 0.1889286, y: -0.08563495}
       - {x: 0.2982273, y: -0.020618916}
       - {x: 0.28678894, y: 0.049247265}
---- !u!95 &9527780
+--- !u!95 &9591212
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -115,7 +116,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: 50
   deathtime: 100
---- !u!212 &21248834
+--- !u!114 &11474256
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 109374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 160f884a2288f56409517b10c3c45527, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  intensity: 0.6
+--- !u!212 &21240046
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
