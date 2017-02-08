@@ -15,6 +15,7 @@ GameObject:
   - 95: {fileID: 9591212}
   - 60: {fileID: 6076350}
   - 114: {fileID: 11474256}
+  - 114: {fileID: 11438082}
   m_Layer: 0
   m_Name: "Sacola Pl\xE1stica"
   m_TagString: Untagged
@@ -103,6 +104,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChangeSpeed: 0.5
+--- !u!114 &11438082
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 109374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b725328f3bc92ff44a21703a1829960f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxX: 10
+  minX: -10
+  maxY: 10
+  minY: -10
+  moveSpeed: 0.5
 --- !u!114 &11469752
 MonoBehaviour:
   m_ObjectHideFlags: 1
