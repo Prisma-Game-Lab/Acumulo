@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
     #region variables
 
     public float bioshrinktime = 1;
-    public float growfactor = 1;
+    public float growfactor = 1.1f;
 
     #endregion
 

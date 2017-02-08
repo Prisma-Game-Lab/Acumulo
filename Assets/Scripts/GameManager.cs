@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
 
     private Text _scoreText;
     private float _score;
+    private GameObject _player;
 
     static private GameObject _pauseCanvas;
     static private float _volume;
@@ -81,6 +82,11 @@ public class GameManager : MonoBehaviour {
             _scoreText = ui.transform.GetChild(0).GetComponent<Text>();
         }
         Time.timeScale = 1;
+
+        if(!_player)
+        {
+            _player = GameObject.FindGameObjectWithTag("Player");
+        }
     }
 
     /// <summary>
@@ -91,14 +97,18 @@ public class GameManager : MonoBehaviour {
     {
         _score += score;
         _scoreText.text = "Score: " + _score;
-        if (_score == 1500)
+
+        if (_score == 500)
         {
-            ChangeLevel("player2");
+            SceneManager.LoadScene(4);
+        }
+        else if (_score == 300)
+        {
+            ChangeLevel("player4");
         }
         else if (_score == 200)
         {
-            //ChangeLevel("player2");
-            SceneManager.LoadScene(4);
+            ChangeLevel("player3");
         }
         else if (_score == 100)
         {
@@ -112,9 +122,9 @@ public class GameManager : MonoBehaviour {
     /// <param name="name">Sprite name</param>
     void ChangeLevel(string name)
     {
-        //Sprite _image = Resources.Load<Sprite>("Sprites/" + name);
-        //gameObject.GetComponentInChildren<SpriteRenderer>().sprite = _image;
-        //gameObject.GetComponent<CircleCollider2D>().radius = _image.bounds.extents.x / 2;
+        Sprite _image = Resources.Load<Sprite>("Sprites/" + name);
+        _player.GetComponentInChildren<SpriteRenderer>().sprite = _image;
+        _player.GetComponent<CircleCollider2D>().radius = _image.bounds.extents.x / 2;
 
         Camera.main.GetComponent<CameraFeats>().ZoomOut();
         //obstacle.GetComponent<ReduceSize>().ChangeSize();
