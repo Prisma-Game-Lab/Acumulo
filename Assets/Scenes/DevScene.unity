@@ -716,6 +716,10 @@ Prefab:
       propertyPath: Player
       value: 
       objectReference: {fileID: 1477850753}
+    - target: {fileID: 11405666, guid: c0a8296e57c92e74d9e664b0b5f5a090, type: 2}
+      propertyPath: smoothSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0a8296e57c92e74d9e664b0b5f5a090, type: 2}
   m_IsPrefabParent: 0
