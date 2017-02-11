@@ -3,23 +3,28 @@ using System.Collections;
 
 public class BarcoFrente : MonoBehaviour {
 
-    // Use this for initialization
-    void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-
+    private GameManager _gm;
+    
+    void Awake ()
+    {
+        GameObject gm = GameObject.FindGameObjectWithTag("GM");
+        if (gm)
+        {
+            _gm = gm.GetComponent<GameManager>();
+        }
     }
-
+	
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<Player>().Shrink();
-            //other.gameObject.GetComponent<Player>().ScoredTrashTriggered(value);
-            //die();
+            _gm.ReduceScore(10);
         }
+    }
+
+    private void Update()
+    {
+        transform.position = transform.parent.transform.position;
     }
 }

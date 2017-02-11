@@ -12,7 +12,11 @@ public class Barco : Obstacle
     void Awake()
     {
         player = GameObject.FindWithTag("Player").transform;
-        _gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameManager>();
+        GameObject gm = GameObject.FindGameObjectWithTag("GM");
+        if(gm)
+        {
+            _gm = gm.GetComponent<GameManager>();
+        }
     }
 
     // Update is called once per frame
@@ -40,10 +44,9 @@ public class Barco : Obstacle
     {
         if (other.gameObject.tag == "Player")
         {
-            //other.gameObject.GetComponent<Movement>().Grow();
-            //other.gameObject.GetComponent<Player>().ScoredTrashTriggered(value);
-            //die();
-            _gm.ReduceScore(10);
+            other.gameObject.GetComponent<Player>().Grow();
+            _gm.ScoredTrashTriggered(value);
+            die();
         }
     }
 
