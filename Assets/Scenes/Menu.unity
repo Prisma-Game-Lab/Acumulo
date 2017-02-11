@@ -471,7 +471,7 @@ Prefab:
       objectReference: {fileID: 8300000, guid: 1b1423a75c2ea2149b124b6fc91ea055, type: 3}
     - target: {fileID: 8242840, guid: 365ea80c1bbec3f4cabff2f0ff48350f, type: 2}
       propertyPath: m_Volume
-      value: 0.439
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8242840, guid: 365ea80c1bbec3f4cabff2f0ff48350f, type: 2}
       propertyPath: spreadCustomCurve.m_RotationOrder

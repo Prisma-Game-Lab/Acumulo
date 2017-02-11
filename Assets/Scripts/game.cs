@@ -14,7 +14,7 @@ public class game : MonoBehaviour {
     void End()
     {
         //Time.timeScale = 0f;
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene("EndingPlanetSaved");
     }
 	void Start () {
         Invoke("End", time);

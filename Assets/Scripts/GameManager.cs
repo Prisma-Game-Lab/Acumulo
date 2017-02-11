@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour {
 
         if (_score == 500)
         {
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene("EndingDestruction");
         }
         else if (_score == 300)
         {
@@ -129,7 +129,7 @@ public class GameManager : MonoBehaviour {
     /// <param name="name">Sprite name</param>
     void ChangeLevel(string name)
     {
-        Sprite _image = Resources.Load<Sprite>("Sprites/" + name);
+        Sprite _image = Resources.Load<Sprite>("Sprites/Player/" + name);
         _player.GetComponentInChildren<SpriteRenderer>().sprite = _image;
         _player.GetComponent<CircleCollider2D>().radius = _image.bounds.extents.x / 2;
 
