@@ -22,12 +22,12 @@ public class Barco : Obstacle
     // Update is called once per frame
     void Update()
     {
-        //var targetRotation = Quaternion.LookRotation(player.position - transform.position);
-        //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.3f * Time.deltaTime);
-        transform.LookAt(player.position);
-        //transform.RotateAround(player.position, 90);
-        //rotacao bugada e precisa de turnspeed baixa p poder contornar
-        transform.Rotate(new Vector3(0, -90, 0), Space.Self);
+        var diff = player.position - transform.position;
+        diff.Normalize();
+
+        float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, 0f, rot_z), 1.2f * Time.deltaTime); 
+
         if (Vector3.Distance(transform.position, player.position) > 0.3f)
         {
             transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
