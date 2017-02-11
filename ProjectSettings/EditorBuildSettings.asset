@@ -12,6 +12,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Credits.unity
   - enabled: 1
+    path: Assets/Scenes/StartGameAnimatic.unity
+  - enabled: 1
     path: Assets/Scenes/DevScene.unity
   - enabled: 1
     path: Assets/Scenes/EndingDestruction.unity
