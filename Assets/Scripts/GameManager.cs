@@ -123,6 +123,12 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    public void ReduceScore(float score)
+    {
+        _score -= score;
+        _scoreText.text = "Score: " + _score;
+    }
+
     /// <summary>
     /// Changes the level 
     /// </summary>

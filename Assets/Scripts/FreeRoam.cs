@@ -43,7 +43,6 @@ public class FreeRoam : MonoBehaviour
         {
             if(_insideXBounds)
             {
-                Debug.Log("X");
                 _insideXBounds = false;
                 randomX = -randomX;
             }
@@ -57,7 +56,6 @@ public class FreeRoam : MonoBehaviour
         {
             if (_insideYBounds)
             {
-                Debug.Log("Y");
                 _insideYBounds = false;
                 randomY = -randomY;
             }

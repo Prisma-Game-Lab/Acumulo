@@ -7,14 +7,19 @@ public class Barco : Obstacle
     public float speed;
     Transform player;
 
+    private GameManager _gm;
+
     void Awake()
     {
         player = GameObject.FindWithTag("Player").transform;
+        _gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //var targetRotation = Quaternion.LookRotation(player.position - transform.position);
+        //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.3f * Time.deltaTime);
         transform.LookAt(player.position);
         //transform.RotateAround(player.position, 90);
         //rotacao bugada e precisa de turnspeed baixa p poder contornar
@@ -38,6 +43,7 @@ public class Barco : Obstacle
             //other.gameObject.GetComponent<Movement>().Grow();
             //other.gameObject.GetComponent<Player>().ScoredTrashTriggered(value);
             //die();
+            _gm.ReduceScore(10);
         }
     }
 
