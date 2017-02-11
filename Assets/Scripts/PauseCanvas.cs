@@ -10,7 +10,7 @@ public class PauseCanvas : MonoBehaviour {
 	void Start ()
     {
         GetComponent<Canvas>().worldCamera = Camera.main;
-        transform.GetChild(4).GetComponent<Slider>().value = _value;
+        transform.GetChild(4).GetComponent<Slider>().value = GameObject.FindGameObjectWithTag("GM").GetComponent<AudioSource>().volume;
 	}
 
     public void ChangeValue(float value)
