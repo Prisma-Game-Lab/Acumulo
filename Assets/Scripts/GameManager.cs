@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
     private Text _scoreText;
     private float _score;
     private GameObject _player;
+    private AudioSource _audio;
 
     static private GameObject _pauseCanvas;
     static private float _volume;
@@ -35,7 +36,8 @@ public class GameManager : MonoBehaviour {
     void Start ()
     {
         _score = 0;
-        _volume = GetComponent<AudioSource>().volume;
+        _audio = GetComponent<AudioSource>();
+        _volume = _audio.volume;
     }
 	
 	// Update is called once per frame
@@ -45,7 +47,9 @@ public class GameManager : MonoBehaviour {
         {
             Pause();
         }
-	}
+
+        _audio.volume = _volume;
+    }
 
     /// <summary>
     /// Pause/Unpause game
@@ -65,9 +69,12 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Changes the game's volume
+    /// </summary>
+    /// <param name="value">new volume</param>
     public void ChangeVolume(float value)
     {
-        Debug.Log(value);
         _volume = value;
     }
 
