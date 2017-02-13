@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour {
     private float _score;
     private GameObject _player;
     private AudioSource _audio;
-
+    public Sprite[] _Playerimages;
     static private GameObject _pauseCanvas;
     static private float _volume;
 
@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour {
         _score = 0;
         _audio = GetComponent<AudioSource>();
         _volume = _audio.volume;
+        ChangeLevel(0);
     }
 	
 	// Update is called once per frame
@@ -111,15 +112,15 @@ public class GameManager : MonoBehaviour {
         }
         else if (_score == 300)
         {
-            ChangeLevel("player4");
+            ChangeLevel(3);
         }
         else if (_score == 200)
         {
-            ChangeLevel("player3");
+            ChangeLevel(2);
         }
         else if (_score == 100)
         {
-            ChangeLevel("player2");
+            ChangeLevel(1);
         }
     }
 
@@ -133,9 +134,9 @@ public class GameManager : MonoBehaviour {
     /// Changes the level 
     /// </summary>
     /// <param name="name">Sprite name</param>
-    void ChangeLevel(string name)
+    void ChangeLevel(int _level)
     {
-        Sprite _image = Resources.Load<Sprite>("Sprites/Player/" + name);
+        Sprite _image = _Playerimages[_level];
         _player.GetComponentInChildren<SpriteRenderer>().sprite = _image;
         _player.GetComponent<CircleCollider2D>().radius = _image.bounds.extents.x / 2;
 
