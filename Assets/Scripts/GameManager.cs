@@ -7,6 +7,9 @@ using System;
 
 public class GameManager : MonoBehaviour {
 
+    public float time;
+    private Text _timeText;
+
     private Text _scoreText;
     private float _score;
     private GameObject _player;
@@ -40,7 +43,10 @@ public class GameManager : MonoBehaviour {
         _volume = _audio.volume;
         ChangeLevel(0);
     }
-	
+	void End()
+    {
+        SceneManager.LoadScene("EndingPlanetSaved");
+    }
 	// Update is called once per frame
 	void Update ()
     {
@@ -48,7 +54,10 @@ public class GameManager : MonoBehaviour {
         {
             Pause();
         }
-
+        _timeText.text = "Time: " +(int)(time- Time.timeSinceLevelLoad);
+        if ((int)(time- Time.timeSinceLevelLoad)==0){
+            End();
+        }
         _audio.volume = _volume;
     }
 
@@ -88,6 +97,8 @@ public class GameManager : MonoBehaviour {
         if (ui)
         {
             _scoreText = ui.transform.GetChild(0).GetComponent<Text>();
+            _timeText  = ui.transform.GetChild(1).GetComponent<Text>();
+
         }
         Time.timeScale = 1;
 
