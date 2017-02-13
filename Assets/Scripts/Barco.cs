@@ -11,6 +11,7 @@ public class Barco : Obstacle
 
     void Awake()
     {
+        gameObject.GetComponentInChildren<Animator>().speed = .25f;
         player = GameObject.FindWithTag("Player").transform;
         GameObject gm = GameObject.FindGameObjectWithTag("GM");
         if(gm)
