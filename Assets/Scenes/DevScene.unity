@@ -386,6 +386,53 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4f04e4c25b98491468d444fb4b46425b, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &87437837
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 87437839}
+  - component: {fileID: 87437838}
+  m_Layer: 0
+  m_Name: Noticias
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &87437838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 87437837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b711b382469809448b343295cf32046a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  News:
+  - {fileID: 21300000, guid: 6f370aadcce82ff42b37a442bbfc3709, type: 3}
+  Place: {fileID: 356068038}
+  swap: {fileID: 0}
+  minperiod: 3
+  maxperiod: 5
+  viewtime: 2
+--- !u!4 &87437839
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 87437837}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.98}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &121744667
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,7 +576,7 @@ GameObject:
   - component: {fileID: 356068039}
   - component: {fileID: 356068038}
   m_Layer: 5
-  m_Name: JornalFechado
+  m_Name: Jornal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -550,7 +597,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -221.8, y: 101.9}
+  m_AnchoredPosition: {x: -188.02, y: 80.9}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &356068038
@@ -572,7 +619,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 067b4bdf06481134e8f129aa97991e35, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
