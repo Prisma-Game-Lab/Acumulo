@@ -5,11 +5,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 498666}
-  - 114: {fileID: 11465304}
-  - 82: {fileID: 8242840}
+  - component: {fileID: 498666}
+  - component: {fileID: 11465304}
+  - component: {fileID: 8242840}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GM
@@ -29,6 +29,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &8242840
 AudioSource:
   m_ObjectHideFlags: 1
@@ -38,13 +39,14 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8c9990d5a54324849bc9bdff6e568c24, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1b1423a75c2ea2149b124b6fc91ea055, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 0.122
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
+  SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -57,12 +59,14 @@ AudioSource:
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - time: 1
+    - serializedVersion: 2
+      time: 1
       value: 0
       inSlope: 0
       outSlope: 0
@@ -73,7 +77,8 @@ AudioSource:
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 0
       inSlope: 0
       outSlope: 0
@@ -84,18 +89,20 @@ AudioSource:
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 1
       inSlope: 0
       outSlope: 0
@@ -114,6 +121,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849282764781cf2448738a29a9da56a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  time: 30
+  _Playerimages:
+  - {fileID: 21300000, guid: ca65d47728c030146a27b598c98663fa, type: 3}
+  - {fileID: 21300000, guid: c0844c38e5c6b364eaa9d95e6e60f2f2, type: 3}
+  - {fileID: 21300000, guid: 99aef38a961516f47add127a64143a52, type: 3}
+  - {fileID: 21300000, guid: b5c4033c2f6ac5548907203a5ce67864, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

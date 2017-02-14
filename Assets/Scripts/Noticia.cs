@@ -12,30 +12,44 @@ public class Noticia : MonoBehaviour {
 	public float minperiod,maxperiod,viewtime;
 	// Use this for initialization
 	private int Newscounter;
-	void RandomNews(){
+
+	void RandomNews()
+    {
 		swap = Place.sprite;
 		Place.sprite = News[Newscounter];
 		Newscounter++;
-		Invoke("TriggerClose",viewtime);
-
-		
+        if(Newscounter >= News.Length)
+        {
+            Newscounter = 0;
+        }
+		Invoke("TriggerClose",viewtime);		
 	}
-	void TriggerClose(){
-		if(swap){
+
+	void TriggerClose()
+    {
+		if(swap)
+        {
 			Place.sprite = swap;
 		}
-		if(Newscounter<=News.Length){
+		if(Newscounter<=News.Length)
+        {
 			TriggerNews();
 		}
 	}
-	void TriggerNews(){
+
+	void TriggerNews()
+    {
 		//parar de usar Invoke e comecar a usar corotinas
 		Invoke("RandomNews",Random.Range(minperiod,maxperiod));
 	}
-	void ImportantNews(){
+
+	void ImportantNews()
+    {
 
 	}
-	void Start () {
+
+	void Start ()
+    {
 		Newscounter = 0;
 		TriggerNews();
 		//para as noticias especificas: GameManager.register(index,score)

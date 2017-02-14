@@ -41,12 +41,13 @@ public class GameManager : MonoBehaviour {
         _score = 0;
         _audio = GetComponent<AudioSource>();
         _volume = _audio.volume;
-        ChangeLevel(0);
     }
+
 	void End()
     {
         SceneManager.LoadScene("EndingPlanetSaved");
     }
+
 	// Update is called once per frame
 	void Update ()
     {
@@ -54,8 +55,12 @@ public class GameManager : MonoBehaviour {
         {
             Pause();
         }
-        _timeText.text = "Time: " +(int)(time- Time.timeSinceLevelLoad);
-        if ((int)(time- Time.timeSinceLevelLoad)==0){
+        if(_timeText)
+        {
+            _timeText.text = "Time: " + (int)(time - Time.timeSinceLevelLoad);
+        }
+        if (((int)(time- Time.timeSinceLevelLoad) == 0) && (SceneManager.GetActiveScene().name == "DevScene"))
+        {
             End();
         }
         _audio.volume = _volume;
@@ -106,6 +111,11 @@ public class GameManager : MonoBehaviour {
         {
             _player = GameObject.FindGameObjectWithTag("Player");
         }
+
+        if(_player)
+        {
+            ChangeLevel(0);
+        }
     }
 
     /// <summary>
@@ -135,6 +145,10 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Reduces player's score
+    /// </summary>
+    /// <param name="score">amount to reduce</param>
     public void ReduceScore(float score)
     {
         _score -= score;
@@ -142,17 +156,19 @@ public class GameManager : MonoBehaviour {
     }
 
     /// <summary>
-    /// Changes the level 
+    /// Changes the level
     /// </summary>
-    /// <param name="name">Sprite name</param>
+    /// <param name="_level">Level number</param>
     void ChangeLevel(int _level)
     {
         Sprite _image = _Playerimages[_level];
         _player.GetComponentInChildren<SpriteRenderer>().sprite = _image;
         _player.GetComponent<CircleCollider2D>().radius = _image.bounds.extents.x / 2;
 
-        Camera.main.GetComponent<CameraFeats>().ZoomOut();
-        //obstacle.GetComponent<ReduceSize>().ChangeSize();
+        if(_level != 0)
+        {
+            Camera.main.GetComponent<CameraFeats>().ZoomOut();
+        }
     }
 
     /// <summary>

@@ -444,10 +444,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11465304, guid: 365ea80c1bbec3f4cabff2f0ff48350f, type: 2}
-      propertyPath: _Playerimages.Array.size
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 498666, guid: 365ea80c1bbec3f4cabff2f0ff48350f, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -479,42 +475,6 @@ Prefab:
     - target: {fileID: 498666, guid: 365ea80c1bbec3f4cabff2f0ff48350f, type: 2}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8242840, guid: 365ea80c1bbec3f4cabff2f0ff48350f, type: 2}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 1b1423a75c2ea2149b124b6fc91ea055, type: 3}
-    - target: {fileID: 8242840, guid: 365ea80c1bbec3f4cabff2f0ff48350f, type: 2}
-      propertyPath: m_Volume
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8242840, guid: 365ea80c1bbec3f4cabff2f0ff48350f, type: 2}
-      propertyPath: spreadCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11465304, guid: 365ea80c1bbec3f4cabff2f0ff48350f, type: 2}
-      propertyPath: _Playerimages.Array.data[0]
-      value: 
-      objectReference: {fileID: 21300000, guid: ca65d47728c030146a27b598c98663fa,
-        type: 3}
-    - target: {fileID: 11465304, guid: 365ea80c1bbec3f4cabff2f0ff48350f, type: 2}
-      propertyPath: _Playerimages.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300000, guid: c0844c38e5c6b364eaa9d95e6e60f2f2,
-        type: 3}
-    - target: {fileID: 11465304, guid: 365ea80c1bbec3f4cabff2f0ff48350f, type: 2}
-      propertyPath: _Playerimages.Array.data[2]
-      value: 
-      objectReference: {fileID: 21300000, guid: 99aef38a961516f47add127a64143a52,
-        type: 3}
-    - target: {fileID: 11465304, guid: 365ea80c1bbec3f4cabff2f0ff48350f, type: 2}
-      propertyPath: _Playerimages.Array.data[3]
-      value: 
-      objectReference: {fileID: 21300000, guid: b5c4033c2f6ac5548907203a5ce67864,
-        type: 3}
-    - target: {fileID: 11465304, guid: 365ea80c1bbec3f4cabff2f0ff48350f, type: 2}
-      propertyPath: time
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 365ea80c1bbec3f4cabff2f0ff48350f, type: 2}
