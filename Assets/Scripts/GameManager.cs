@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour {
     private float _score;
     private GameObject _player;
     private AudioSource _audio;
-    public Sprite[] _Playerimages;
+    public GameObject[] _playerSprites;
     static private GameObject _pauseCanvas;
     static private float _volume;
 
@@ -161,11 +161,15 @@ public class GameManager : MonoBehaviour {
     /// <param name="_level">Level number</param>
     void ChangeLevel(int _level)
     {
-        Sprite _image = _Playerimages[_level];
-        _player.GetComponentInChildren<SpriteRenderer>().sprite = _image;
-        _player.GetComponent<CircleCollider2D>().radius = _image.bounds.extents.x / 2;
+        GameObject _image = _playerSprites[_level];
+        Destroy(_player.transform.GetChild(0).gameObject);
+        GameObject obj = Instantiate(_image);
+        obj.transform.parent = _player.transform;
+        obj.transform.localRotation = Quaternion.identity;
+        obj.transform.localPosition = Vector3.zero;
+        obj.transform.localScale = Vector3.one;
 
-        if(_level != 0)
+        if (_level != 0)
         {
             Camera.main.GetComponent<CameraFeats>().ZoomOut();
         }
