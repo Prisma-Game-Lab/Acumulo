@@ -21,7 +21,7 @@ public class TrashBio : Obstacle
             other.gameObject.GetComponent<Player>().Grow();
             other.gameObject.GetComponent<Player>().Bio();
             _gm.ScoredTrashTriggered(value);
-            die();
+            Destroy(gameObject);
         }
     }
     void die()

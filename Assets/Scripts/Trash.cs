@@ -35,7 +35,7 @@ public class Trash : Obstacle
         {
             other.gameObject.GetComponent<Player>().Grow();
             _gm.ScoredTrashTriggered(value);
-            die();
+            Destroy(gameObject);
         }
     }
 
