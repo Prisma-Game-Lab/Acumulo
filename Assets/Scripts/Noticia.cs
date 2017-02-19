@@ -46,7 +46,7 @@ public class Noticia : MonoBehaviour {
         }
         else if (textCounter < 15)
         {
-            NewsText.text = Texts2[textCounter - 10].text;
+            NewsText.text = Texts3[textCounter - 10].text;
         }
         textCounter++;
     }

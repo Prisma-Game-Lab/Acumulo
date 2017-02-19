@@ -8,13 +8,16 @@ using System;
 public class GameManager : MonoBehaviour {
 
     public float time;
-    private Text _timeText;
+    public GameObject[] _playerSprites;
 
     private Text _scoreText;
+    private Text _timeText;
     private float _score;
-    private GameObject _player;
+    private GameObject _playerObj;
+    private Player _player;
     private AudioSource _audio;
-    public GameObject[] _playerSprites;
+    private int _level;
+
     static private GameObject _pauseCanvas;
     static private float _volume;
 
@@ -41,6 +44,7 @@ public class GameManager : MonoBehaviour {
         _score = 0;
         _audio = GetComponent<AudioSource>();
         _volume = _audio.volume;
+        _level = 1;
     }
 
 	void End()
@@ -110,13 +114,14 @@ public class GameManager : MonoBehaviour {
         }
         Time.timeScale = 1;
 
-        if(!_player)
+        if(!_playerObj)
         {
-            _player = GameObject.FindGameObjectWithTag("Player");
+            _playerObj = GameObject.FindGameObjectWithTag("Player");
         }
 
-        if(_player)
+        if(_playerObj)
         {
+            _player = _playerObj.GetComponent<Player>();
             ChangeLevel(0);
         }
     }
@@ -129,24 +134,30 @@ public class GameManager : MonoBehaviour {
     {
         _score += score;
         _scoreText.text = "Score: " + _score;
+    }
 
-        if (_score == 500)
+    public void CheckLevelChange(int size)
+    {
+        if (size == _player.SizeTriggersLevel[3] && _level == 4)
         {
             SceneManager.LoadScene("EndingDestruction");
         }
-        else if (_score == 300)
+        else if (size == _player.SizeTriggersLevel[2] && _level == 3)
         {
             ChangeLevel(3);
+            _level++;
         }
-        else if (_score == 200)
+        else if (size == _player.SizeTriggersLevel[1] && _level == 2)
         {
             ChangeLevel(2);
+            _level++;
         }
-        else if (_score == 100)
+        else if (size == _player.SizeTriggersLevel[0] && _level == 1)
         {
             ChangeLevel(1);
+            _level++;
         }
-    }
+    } 
 
     /// <summary>
     /// Reduces player's score
@@ -165,9 +176,9 @@ public class GameManager : MonoBehaviour {
     void ChangeLevel(int _level)
     {
         GameObject _image = _playerSprites[_level];
-        Destroy(_player.transform.GetChild(0).gameObject);
+        Destroy(_playerObj.transform.GetChild(0).gameObject);
         GameObject obj = Instantiate(_image);
-        obj.transform.parent = _player.transform;
+        obj.transform.parent = _playerObj.transform;
         obj.transform.localRotation = Quaternion.identity;
         obj.transform.localPosition = Vector3.zero;
         obj.transform.localScale = Vector3.one;
