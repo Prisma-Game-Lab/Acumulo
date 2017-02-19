@@ -14,8 +14,9 @@ public class Noticia : MonoBehaviour {
     public TextAsset[] Texts3;
     public Text NewsText;
     public float minperiod,maxperiod,viewtime;
+    public GameObject Spawner;
 
-	private int Newscounter;
+    private int Newscounter;
     private int textCounter;
 
 	void Start ()
@@ -43,10 +44,30 @@ public class Noticia : MonoBehaviour {
         else if (textCounter < 10)
         {
             NewsText.text = Texts2[textCounter-5].text;
+            if(textCounter - 5 == 2)
+            {
+                //barreira
+                Spawner.transform.FindChild("spawner barreira").gameObject.SetActive(true);
+            }
+            else if(textCounter - 5 == 4)
+            {
+                //bacteria
+                Spawner.transform.FindChild("spawner bacteria").gameObject.SetActive(true);
+            }
         }
         else if (textCounter < 15)
         {
             NewsText.text = Texts3[textCounter - 10].text;
+            if (textCounter - 10 == 1)
+            {
+                //barco
+                Spawner.transform.FindChild("spawner barco").gameObject.SetActive(true);
+            }
+            else if (textCounter - 10 == 3)
+            {
+                //biodegradavel
+                Spawner.transform.FindChild("spawner lixobio").gameObject.SetActive(true);
+            }
         }
         textCounter++;
     }

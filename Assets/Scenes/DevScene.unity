@@ -430,6 +430,7 @@ MonoBehaviour:
   minperiod: 3
   maxperiod: 5
   viewtime: 2
+  Spawner: {fileID: 1464780805}
 --- !u!4 &87437839
 Transform:
   m_ObjectHideFlags: 0
@@ -689,7 +690,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2062406, guid: c0a8296e57c92e74d9e664b0b5f5a090, type: 2}
       propertyPath: orthographic size
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0a8296e57c92e74d9e664b0b5f5a090, type: 2}
