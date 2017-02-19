@@ -1020,30 +1020,6 @@ Transform:
   m_Father: {fileID: 568086960}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1341108792 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 167782, guid: 3240d62628f17104ca2e2ece71d7ea30, type: 2}
-  m_PrefabInternal: {fileID: 1567123137}
---- !u!50 &1341108793
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1341108792}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.0001
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &1385614215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1334,46 +1310,6 @@ Prefab:
     - target: {fileID: 413298, guid: 3240d62628f17104ca2e2ece71d7ea30, type: 2}
       propertyPath: m_RootOrder
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 413298, guid: 3240d62628f17104ca2e2ece71d7ea30, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 413298, guid: 3240d62628f17104ca2e2ece71d7ea30, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 413298, guid: 3240d62628f17104ca2e2ece71d7ea30, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11435142, guid: 3240d62628f17104ca2e2ece71d7ea30, type: 2}
-      propertyPath: speed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 123218, guid: 3240d62628f17104ca2e2ece71d7ea30, type: 2}
-      propertyPath: m_Name
-      value: Sprite
-      objectReference: {fileID: 0}
-    - target: {fileID: 5076088, guid: 3240d62628f17104ca2e2ece71d7ea30, type: 2}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 145138, guid: 3240d62628f17104ca2e2ece71d7ea30, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 123218, guid: 3240d62628f17104ca2e2ece71d7ea30, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 167782, guid: 3240d62628f17104ca2e2ece71d7ea30, type: 2}
-      propertyPath: m_Name
-      value: FrenteBarco
-      objectReference: {fileID: 0}
-    - target: {fileID: 167782, guid: 3240d62628f17104ca2e2ece71d7ea30, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3240d62628f17104ca2e2ece71d7ea30, type: 2}

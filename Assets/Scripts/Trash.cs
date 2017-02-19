@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(ReduceSize))]
 public class Trash : Obstacle
 {
     public int value;
@@ -40,6 +41,6 @@ public class Trash : Obstacle
 
     void die()
     {
-        Destroy(this.gameObject);
+        gameObject.GetComponent<ReduceSize>().ChangeSize();
     }
 }

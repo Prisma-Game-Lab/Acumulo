@@ -43,6 +43,7 @@ public class ReduceSize : MonoBehaviour
             if (_sizeFactor == 1)
             {
                 _changeSize = false;
+                Destroy(gameObject);
             }
         }
     }

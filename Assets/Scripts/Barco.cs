@@ -3,7 +3,6 @@
 public class Barco : Obstacle
 {
     public int value;
-    public float deathtime;
     public float speed;
     Transform player;
 
@@ -11,7 +10,7 @@ public class Barco : Obstacle
 
     void Awake()
     {
-        gameObject.GetComponentInChildren<Animator>().speed = .25f;
+        //gameObject.GetComponentInChildren<Animator>().speed = .25f;
         player = GameObject.FindWithTag("Player").transform;
         GameObject gm = GameObject.FindGameObjectWithTag("GM");
         if(gm)

@@ -30,7 +30,7 @@ public class Bacteria : Obstacle
     }
     void Awake()
     {
-        Invoke("die", deathtime);
+        //Invoke("die", deathtime);
     }
     void Update()
     {

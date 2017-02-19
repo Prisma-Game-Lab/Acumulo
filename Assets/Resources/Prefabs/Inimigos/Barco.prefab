@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - component: {fileID: 414140}
   - component: {fileID: 21285780}
+  - component: {fileID: 95117898712586706}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -45,9 +46,9 @@ GameObject:
   - component: {fileID: 471584}
   - component: {fileID: 6187828}
   - component: {fileID: 11498232}
-  - component: {fileID: 50649567608900224}
+  - component: {fileID: 50688785373286532}
   m_Layer: 0
-  m_Name: BarcoFrente
+  m_Name: FrenteBarco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,7 +155,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 100
-  deathtime: 0
   speed: 1
 --- !u!114 &11441204
 MonoBehaviour:
@@ -250,7 +250,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!50 &50649567608900224
+--- !u!50 &50688785373286532
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
@@ -270,3 +270,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &95117898712586706
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123218}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0f44fda14913f574a865e4251b8521b4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1

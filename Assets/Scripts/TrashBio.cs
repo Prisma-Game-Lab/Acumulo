@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(ReduceSize))]
 public class TrashBio : Obstacle
 {
     public int value;
@@ -25,7 +26,7 @@ public class TrashBio : Obstacle
     }
     void die()
     {
-        Destroy(this.gameObject);
+        gameObject.GetComponent<ReduceSize>().ChangeSize();
     }
     void Awake()
     {
