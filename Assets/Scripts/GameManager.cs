@@ -181,7 +181,7 @@ public class GameManager : MonoBehaviour {
         obj.transform.parent = _playerObj.transform;
         obj.transform.localRotation = Quaternion.identity;
         obj.transform.localPosition = Vector3.zero;
-        obj.transform.localScale = Vector3.one;
+        //obj.transform.localScale = Vector3.one;
 
         if (_level != 0)
         {

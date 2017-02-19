@@ -41,7 +41,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1b1423a75c2ea2149b124b6fc91ea055, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.122
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -121,12 +121,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849282764781cf2448738a29a9da56a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 30
-  _Playerimages:
-  - {fileID: 21300000, guid: ca65d47728c030146a27b598c98663fa, type: 3}
-  - {fileID: 21300000, guid: c0844c38e5c6b364eaa9d95e6e60f2f2, type: 3}
-  - {fileID: 21300000, guid: 99aef38a961516f47add127a64143a52, type: 3}
-  - {fileID: 21300000, guid: b5c4033c2f6ac5548907203a5ce67864, type: 3}
+  time: 300
+  _playerSprites:
+  - {fileID: 1634781437603700, guid: aab135acbc5e2e748a151a079856e0bb, type: 2}
+  - {fileID: 1025417388602608, guid: 28f4deaabeb1ee942a4db41c5ffcd2a0, type: 2}
+  - {fileID: 1535014816930186, guid: 78e1721c09e2167418214227d24cf433, type: 2}
+  - {fileID: 1277707046835638, guid: ef99d3e291b58174ba1b0ac7531996df, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
