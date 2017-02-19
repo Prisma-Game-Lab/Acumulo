@@ -9,56 +9,75 @@ public class Noticia : MonoBehaviour {
 	public Sprite[] News;
 	public Image Place;
 	public Sprite swap;
-	public float minperiod,maxperiod,viewtime;
-	// Use this for initialization
+    public TextAsset[] Texts1;
+    public TextAsset[] Texts2;
+    public TextAsset[] Texts3;
+    public Text NewsText;
+    public float minperiod,maxperiod,viewtime;
+
 	private int Newscounter;
-
-	void RandomNews()
-    {
-		swap = Place.sprite;
-		Place.sprite = News[Newscounter];
-		Newscounter++;
-        if(Newscounter >= News.Length)
-        {
-            Newscounter = 0;
-        }
-		Invoke("TriggerClose",viewtime);		
-	}
-
-	void TriggerClose()
-    {
-		if(swap)
-        {
-			Place.sprite = swap;
-		}
-		if(Newscounter<=News.Length)
-        {
-			TriggerNews();
-		}
-	}
-
-	void TriggerNews()
-    {
-		//parar de usar Invoke e comecar a usar corotinas
-		Invoke("RandomNews",Random.Range(minperiod,maxperiod));
-	}
-
-	void ImportantNews()
-    {
-
-	}
+    private int textCounter;
 
 	void Start ()
     {
 		Newscounter = 0;
-		TriggerNews();
+        textCounter = 0;
+        TriggerNews();
 		//para as noticias especificas: GameManager.register(index,score)
 		//la no GM, a register(int,int) poe num vetor e no update checa esse vetor. se bateu o score, chama ImportantNews com o index associado 
 		//problemas: uma noticia importante pode pausar o jogo porem nao pausar o processo de noticias aleatorias
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		
 	}
+
+    public void TriggerTextNews()
+    {
+        if (textCounter < 5)
+        {
+            NewsText.text = Texts1[textCounter].text;
+        }
+        else if (textCounter < 10)
+        {
+            NewsText.text = Texts2[textCounter-5].text;
+        }
+        else if (textCounter < 15)
+        {
+            NewsText.text = Texts2[textCounter - 10].text;
+        }
+        textCounter++;
+    }
+
+    void RandomNews()
+    {
+        swap = Place.sprite;
+        Place.sprite = News[Newscounter];
+        Newscounter++;
+        if (Newscounter >= News.Length)
+        {
+            Newscounter = 0;
+        }
+        Invoke("TriggerClose", viewtime);
+    }
+
+    void TriggerClose()
+    {
+        if (swap)
+        {
+            Place.sprite = swap;
+        }
+        if (Newscounter <= News.Length)
+        {
+            TriggerNews();
+        }
+    }
+
+    void TriggerNews()
+    {
+        //parar de usar Invoke e comecar a usar corotinas
+        Invoke("RandomNews", Random.Range(minperiod, maxperiod));
+    }
 }

@@ -71,16 +71,19 @@ public class GameManager : MonoBehaviour {
     /// </summary>
     public void Pause()
     {
-        if (!_pauseCanvas)
+        if(SceneManager.GetActiveScene().name == "DevScene")
         {
-            _pauseCanvas = Instantiate(Resources.Load<GameObject>("Prefabs/PauseCanvas"));
-            _pauseCanvas.SetActive(true);
-            Time.timeScale = 0;
-        }
-        else
-        {
-            _pauseCanvas.SetActive(!_pauseCanvas.activeSelf);
-            Time.timeScale = (_pauseCanvas.activeSelf) ? 0: 1;
+            if (!_pauseCanvas)
+            {
+                _pauseCanvas = Instantiate(Resources.Load<GameObject>("Prefabs/PauseCanvas"));
+                _pauseCanvas.SetActive(true);
+                Time.timeScale = 0;
+            }
+            else
+            {
+                _pauseCanvas.SetActive(!_pauseCanvas.activeSelf);
+                Time.timeScale = (_pauseCanvas.activeSelf) ? 0 : 1;
+            }
         }
     }
 
