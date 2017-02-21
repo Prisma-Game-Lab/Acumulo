@@ -625,8 +625,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trash: {fileID: 11469752, guid: 652eac406d77e434691fb5b5a7f697d8, type: 2}
-  num: 10
+  num: 5
   time: 10
+  spawn_rate: 1
+  rateovertime:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0.018498987
+      value: 0.24505562
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1.0249836
+      value: 0.0010854155
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
   RadiusMultiplier: 8
 --- !u!4 &464705460
 Transform:
@@ -852,8 +871,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trash: {fileID: 11435142, guid: 3240d62628f17104ca2e2ece71d7ea30, type: 2}
-  num: 1
-  time: 1
+  num: 5
+  time: 20
+  spawn_rate: 0
+  rateovertime:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   RadiusMultiplier: 8
 --- !u!1 &978938129
 GameObject:
@@ -896,8 +922,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trash: {fileID: 11427432, guid: c9c36c0f99948a44a8cd10cdf23e58b9, type: 2}
-  num: 10
-  time: 10
+  num: 20
+  time: 50
+  spawn_rate: 0
+  rateovertime:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   RadiusMultiplier: 8
 --- !u!1 &1098926310
 GameObject:
@@ -1022,6 +1055,16 @@ Prefab:
       propertyPath: News
       value: 
       objectReference: {fileID: 87437838}
+    - target: {fileID: 114803487477726238, guid: f49cd5c9dbd57e14b8dfbbebadf483a5,
+        type: 2}
+      propertyPath: Speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114830887667622736, guid: f49cd5c9dbd57e14b8dfbbebadf483a5,
+        type: 2}
+      propertyPath: growfactor
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f49cd5c9dbd57e14b8dfbbebadf483a5, type: 2}
   m_IsPrefabParent: 0
@@ -1177,9 +1220,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4579714f43462b4bb5065c21e531bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trash: {fileID: 0}
-  num: 5
-  time: 10
+  trash: {fileID: 11448770, guid: 9b44401c344f4c14b869b674a0743af7, type: 2}
+  num: 100
+  time: 100
+  spawn_rate: 0
+  rateovertime:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   RadiusMultiplier: 8
 --- !u!4 &1404691349
 Transform:
@@ -1255,7 +1305,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1682784429
 Transform:
   m_ObjectHideFlags: 0
@@ -1281,8 +1331,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trash: {fileID: 11438904, guid: e82676efa24edd74e9d286218247680a, type: 2}
-  num: 10
-  time: 10
+  num: 100
+  time: 300
+  spawn_rate: 0
+  rateovertime:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0.30625007
+      inSlope: -3.5357132
+      outSlope: -3.5357132
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
   RadiusMultiplier: 8
 --- !u!1 &1706285718
 GameObject:
@@ -1451,8 +1520,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trash: {fileID: 11419392, guid: 9590d93be6fe1364194db8e4869935a9, type: 2}
-  num: 10
-  time: 10
+  num: 20
+  time: 50
+  spawn_rate: 0
+  rateovertime:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   RadiusMultiplier: 8
 --- !u!1 &1808721983
 GameObject:
@@ -1507,7 +1583,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1839880540
 Transform:
   m_ObjectHideFlags: 0
@@ -1533,8 +1609,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trash: {fileID: 11478680, guid: eca50c6a602c9dd44ad52d749797b776, type: 2}
-  num: 10
-  time: 10
+  num: 100
+  time: 300
+  spawn_rate: 0
+  rateovertime:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
   RadiusMultiplier: 8
 --- !u!1 &1894365781
 GameObject:

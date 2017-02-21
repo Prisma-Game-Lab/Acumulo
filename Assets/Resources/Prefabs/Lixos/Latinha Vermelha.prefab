@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 50
-  deathtime: 100
+  deathtime: 20
 --- !u!114 &11457280
 MonoBehaviour:
   m_ObjectHideFlags: 1

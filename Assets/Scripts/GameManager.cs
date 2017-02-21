@@ -8,16 +8,16 @@ using System;
 public class GameManager : MonoBehaviour {
 
     public float time;
-    public GameObject[] _playerSprites;
+    public GameObject[] PlayerSprites;
+    public AudioSource[] AudioSources;
 
     private Text _scoreText;
     private Text _timeText;
     private float _score;
     private GameObject _playerObj;
     private Player _player;
-    private AudioSource _audio;
     private int _level;
-
+	private GameObject _pause;
     static private GameObject _pauseCanvas;
     static private float _volume;
 
@@ -41,9 +41,14 @@ public class GameManager : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        _score = 0;
-        _audio = GetComponent<AudioSource>();
-        _volume = _audio.volume;
+		_pause = Resources.Load<GameObject> ("Prefabs/PauseCanvas");
+		_score = 0;
+        _volume = AudioSources[0].volume;
+        AudioSources[0].Play();
+        for(int i = 0; i < AudioSources.Length; i++)
+        {
+            AudioSources[i].volume = _volume;
+        }
         _level = 1;
     }
 
@@ -67,7 +72,10 @@ public class GameManager : MonoBehaviour {
         {
             End();
         }
-        _audio.volume = _volume;
+        for (int i = 0; i < AudioSources.Length; i++)
+        {
+            AudioSources[i].volume = _volume;
+        }
     }
 
     /// <summary>
@@ -79,7 +87,7 @@ public class GameManager : MonoBehaviour {
         {
             if (!_pauseCanvas)
             {
-                _pauseCanvas = Instantiate(Resources.Load<GameObject>("Prefabs/PauseCanvas"));
+                _pauseCanvas = Instantiate(_pause);
                 _pauseCanvas.SetActive(true);
                 Time.timeScale = 0;
             }
@@ -123,6 +131,10 @@ public class GameManager : MonoBehaviour {
         {
             _player = _playerObj.GetComponent<Player>();
             ChangeLevel(0);
+        }
+        if (SceneManager.GetActiveScene().name == "DevScene")
+        {
+            AudioSources[1].Play();
         }
     }
 
@@ -175,7 +187,7 @@ public class GameManager : MonoBehaviour {
     /// <param name="_level">Level number</param>
     void ChangeLevel(int _level)
     {
-        GameObject _image = _playerSprites[_level];
+        GameObject _image = PlayerSprites[_level];
         Destroy(_playerObj.transform.GetChild(0).gameObject);
         GameObject obj = Instantiate(_image);
         obj.transform.parent = _playerObj.transform;
@@ -211,6 +223,6 @@ public class GameManager : MonoBehaviour {
     /// </summary>
     public void Reset()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("Menu");
     }
 }

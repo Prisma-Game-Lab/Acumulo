@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 50
-  deathtime: 100
+  deathtime: 20
 --- !u!212 &21253854
 SpriteRenderer:
   m_ObjectHideFlags: 1

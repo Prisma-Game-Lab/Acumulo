@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bece6329722ac81468b3c443bbc97796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChangeSpeed: 0.5
+  ChangeSpeed: 0.3
 --- !u!114 &11438082
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 50
-  deathtime: 100
+  deathtime: 20
 --- !u!114 &11474256
 MonoBehaviour:
   m_ObjectHideFlags: 1
