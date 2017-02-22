@@ -18,7 +18,7 @@ public class TrashBio : Obstacle
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<Player>().Grow();
+            other.gameObject.GetComponent<Player>().Grow(gameObject.tag);
             other.gameObject.GetComponent<Player>().Bio();
             _gm.ScoredTrashTriggered(value);
             Destroy(gameObject);

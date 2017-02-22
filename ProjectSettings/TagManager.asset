@@ -7,6 +7,9 @@ TagManager:
   - GM
   - UI
   - Bounds
+  - Collectable1
+  - Collectable2
+  - Collectable3
   layers:
   - Default
   - TransparentFX

@@ -33,7 +33,7 @@ public class Trash : Obstacle
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<Player>().Grow();
+            other.gameObject.GetComponent<Player>().Grow(gameObject.tag);
             _gm.ScoredTrashTriggered(value);
             Destroy(gameObject);
         }

@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 11415106}
   m_Layer: 0
   m_Name: Garrafa
-  m_TagString: Untagged
+  m_TagString: Collectable1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

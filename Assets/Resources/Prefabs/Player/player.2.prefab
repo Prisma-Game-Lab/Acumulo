@@ -9,44 +9,44 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1025417388602608}
+  m_RootGameObject: {fileID: 1888348153045392}
   m_IsPrefabParent: 1
---- !u!1 &1025417388602608
+--- !u!1 &1888348153045392
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4990273789454612}
-  - component: {fileID: 212819998086191754}
-  - component: {fileID: 60611649743234574}
+  - component: {fileID: 4956963545028826}
+  - component: {fileID: 212348880823745900}
+  - component: {fileID: 60952234127233646}
   m_Layer: 0
-  m_Name: player2
+  m_Name: player.2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4990273789454612
+--- !u!4 &4956963545028826
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1025417388602608}
+  m_GameObject: {fileID: 1888348153045392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.0691767, y: 3.2961183, z: 0}
+  m_LocalPosition: {x: -2.54, y: 2.8437443, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &60611649743234574
+--- !u!60 &60952234127233646
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1025417388602608}
+  m_GameObject: {fileID: 1888348153045392}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -130,12 +130,12 @@ PolygonCollider2D:
       - {x: -1.01, y: 0.185}
       - {x: -1, y: 0.16499999}
       - {x: -0.98999995, y: 0.175}
---- !u!212 &212819998086191754
+--- !u!212 &212348880823745900
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1025417388602608}
+  m_GameObject: {fileID: 1888348153045392}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0

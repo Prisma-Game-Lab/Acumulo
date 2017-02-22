@@ -11,9 +11,18 @@ public class Player : MonoBehaviour
     public int[] SizeTriggersNews;
     public int[] SizeTriggersLevel;
     public Noticia News;
+    public float Level1PixelSizeX;
+    public float Level2PixelSizeX;
+    public float Level3PixelSizeX;
+    public float Level4PixelSizeX;
+    public int Level1NumStates;
+    public int Level2NumStates;
+	public int Level3NumStates;
+	//public GameObject[] PlayerSprites;
 
     private int _sizeTriggerCounter;
     private GameManager _gm;
+    private int _subSizeCount;
 
     #endregion
 
@@ -27,6 +36,25 @@ public class Player : MonoBehaviour
         {
             _gm = gm.GetComponent<GameManager>();
         }
+        _subSizeCount = 0;
+
+		Vector3 scale = transform.GetChild(0).localScale;
+		float multiplyFactor = Level1PixelSizeX / Level2PixelSizeX;
+		float newScale = multiplyFactor * scale.x;
+		Vector3 newSize = new Vector3(newScale, newScale, scale.z);
+		transform.GetChild(0).localScale = newSize;
+
+		scale = transform.GetChild(1).localScale;
+		multiplyFactor = Level2PixelSizeX / Level3PixelSizeX;
+		newScale = multiplyFactor * scale.x;
+		newSize = new Vector3(newScale, newScale, scale.z);
+		transform.GetChild(1).localScale = newSize;
+
+		scale = transform.GetChild(2).localScale;
+		multiplyFactor = Level3PixelSizeX / Level4PixelSizeX;
+		newScale = multiplyFactor * scale.x;
+		newSize = new Vector3(newScale, newScale, scale.z);
+		transform.GetChild(2).localScale = newSize;
     }
 
 	// Update is called once per frame
@@ -35,25 +63,100 @@ public class Player : MonoBehaviour
 	    
 	}
 
+	/// <summary>
+	/// Changes the level
+	/// </summary>
+	/// <param name="level">Level number</param>
+	public void ChangeLevel(int level)
+	{
+		//GameObject _image = PlayerSprites[level];
+		for(int i = 0; i < transform.childCount; i++)
+		{
+			transform.GetChild(i).gameObject.SetActive(false);
+		}
+		transform.GetChild(level).gameObject.SetActive(true);
+		//GameObject obj = Instantiate(_image);
+		//obj.transform.parent = transform;
+		//obj.transform.localRotation = Quaternion.identity;
+		//obj.transform.localPosition = Vector3.zero;
+		//obj.transform.localScale = Vector3.one;
+
+		if (level != 0)
+		{
+			Camera.main.GetComponent<CameraFeats>().ZoomOut();
+		}
+	}
+
     /// <summary>
     /// Increases the player's size
     /// </summary>
-    public void Grow()
+    public void Grow(string tag)
     {
-        Vector3 newSize = new Vector3(transform.localScale.x + growfactor, transform.localScale.y + growfactor, transform.localScale.z);
-        transform.localScale = newSize;
-        Size++;
-
-        if(_sizeTriggerCounter < SizeTriggersNews.Length)
+        float xScale = gameObject.transform.localScale.x;
+        float multiplyFactor;
+        float newScale;
+        growfactor = 0;
+        
+        if (_gm.Level == 1)
         {
-            if (Size == SizeTriggersNews[_sizeTriggerCounter])
+            multiplyFactor = Level2PixelSizeX / Level1PixelSizeX;
+            newScale = multiplyFactor * xScale;
+            growfactor = (newScale-xScale)/Level1NumStates;
+        }
+        else if(_gm.Level == 2)
+        {
+            multiplyFactor = Level3PixelSizeX / Level2PixelSizeX;
+            newScale = multiplyFactor * xScale;
+            growfactor = (newScale - xScale) / Level2NumStates;
+            if (tag == "Collectibles1")
             {
-                _sizeTriggerCounter++;
-                News.TriggerTextNews();
+                _subSizeCount++;
+                if(_subSizeCount < 10)
+                {
+                    growfactor = 0;
+                }
+                else
+                {
+                    _subSizeCount = 0;
+                }
             }
         }
-        
-        _gm.CheckLevelChange(Size);
+        else if(_gm.Level == 3)
+        {
+            multiplyFactor = Level4PixelSizeX / Level3PixelSizeX;
+            newScale = multiplyFactor * xScale;
+            growfactor = (newScale - xScale) / Level3NumStates;
+            if (tag == "Collectibles2")
+            {
+                _subSizeCount++;
+                if (_subSizeCount < 3)
+                {
+                    growfactor = 0;
+                }
+                else
+                {
+                    _subSizeCount = 0;
+                }
+            }
+        }
+
+        if(growfactor>0)
+        {
+            Vector3 newSize = new Vector3(transform.localScale.x + growfactor, transform.localScale.y + growfactor, transform.localScale.z);
+            transform.localScale = newSize;
+            Size++;
+
+            if (_sizeTriggerCounter < SizeTriggersNews.Length)
+            {
+                if (Size == SizeTriggersNews[_sizeTriggerCounter])
+                {
+                    _sizeTriggerCounter++;
+                    News.TriggerTextNews();
+                }
+            }
+
+            _gm.CheckLevelChange(Size);
+        }
     }
     /// <summary>
     /// Reduce the player's size

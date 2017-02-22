@@ -31,7 +31,7 @@ GameObject:
   - component: {fileID: 11435142}
   m_Layer: 0
   m_Name: Barco
-  m_TagString: Untagged
+  m_TagString: Collectable3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 100
-  speed: 1.1
+  speed: 1.02
 --- !u!114 &11441204
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -179,6 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67d7d5a1d929673448107dc4a00c9a2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hit_time: 0
 --- !u!212 &21285780
 SpriteRenderer:
   m_ObjectHideFlags: 1

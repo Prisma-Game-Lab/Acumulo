@@ -8,7 +8,6 @@ using System;
 public class GameManager : MonoBehaviour {
 
     public float time;
-    public GameObject[] PlayerSprites;
     public AudioSource[] AudioSources;
 
     private Text _scoreText;
@@ -20,6 +19,14 @@ public class GameManager : MonoBehaviour {
 	private GameObject _pause;
     static private GameObject _pauseCanvas;
     static private float _volume;
+
+    public int Level
+    {
+        get
+        {
+            return _level;
+        }
+    }
 
     // Singleton
     static public GameManager instance = null;
@@ -130,7 +137,7 @@ public class GameManager : MonoBehaviour {
         if(_playerObj)
         {
             _player = _playerObj.GetComponent<Player>();
-            ChangeLevel(0);
+			_player.ChangeLevel(0);
         }
         if (SceneManager.GetActiveScene().name == "DevScene")
         {
@@ -150,23 +157,18 @@ public class GameManager : MonoBehaviour {
 
     public void CheckLevelChange(int size)
     {
-        if (size == _player.SizeTriggersLevel[3] && _level == 4)
+        if (size == _player.SizeTriggersLevel[2] && _level == 3)
         {
             SceneManager.LoadScene("EndingDestruction");
         }
-        else if (size == _player.SizeTriggersLevel[2] && _level == 3)
-        {
-            ChangeLevel(3);
-            _level++;
-        }
         else if (size == _player.SizeTriggersLevel[1] && _level == 2)
         {
-            ChangeLevel(2);
+			_player.ChangeLevel(2);
             _level++;
         }
         else if (size == _player.SizeTriggersLevel[0] && _level == 1)
         {
-            ChangeLevel(1);
+			_player.ChangeLevel(1);
             _level++;
         }
     } 
@@ -179,26 +181,6 @@ public class GameManager : MonoBehaviour {
     {
         _score -= score;
         _scoreText.text = "Score: " + _score;
-    }
-
-    /// <summary>
-    /// Changes the level
-    /// </summary>
-    /// <param name="_level">Level number</param>
-    void ChangeLevel(int _level)
-    {
-        GameObject _image = PlayerSprites[_level];
-        Destroy(_playerObj.transform.GetChild(0).gameObject);
-        GameObject obj = Instantiate(_image);
-        obj.transform.parent = _playerObj.transform;
-        obj.transform.localRotation = Quaternion.identity;
-        obj.transform.localPosition = Vector3.zero;
-        //obj.transform.localScale = Vector3.one;
-
-        if (_level != 0)
-        {
-            Camera.main.GetComponent<CameraFeats>().ZoomOut();
-        }
     }
 
     /// <summary>

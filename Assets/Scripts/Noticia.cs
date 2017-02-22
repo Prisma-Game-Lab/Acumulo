@@ -22,6 +22,7 @@ public class Noticia : MonoBehaviour {
 	void Start ()
     {
 		Newscounter = 0;
+		if(!PlayerPrefs.HasKey("counter"))PlayerPrefs.SetInt ("counter", 0);
         textCounter = 0;
         TriggerNews();
 		//para as noticias especificas: GameManager.register(index,score)
@@ -77,6 +78,8 @@ public class Noticia : MonoBehaviour {
         swap = Place.sprite;
         Place.sprite = News[Newscounter];
         Newscounter++;
+		if(Newscounter>PlayerPrefs.GetInt ("counter"))
+			PlayerPrefs.SetInt ("counter", Newscounter);
         if (Newscounter >= News.Length)
         {
             Newscounter = 0;

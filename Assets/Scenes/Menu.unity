@@ -106,7 +106,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 529f831b413b82a4582ab06637a82a63, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.06
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -534,7 +534,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11465304, guid: 365ea80c1bbec3f4cabff2f0ff48350f, type: 2}
       propertyPath: PlayerSprites.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 498666, guid: 365ea80c1bbec3f4cabff2f0ff48350f, type: 2}
       propertyPath: m_LocalPosition.x
@@ -571,17 +571,17 @@ Prefab:
     - target: {fileID: 11465304, guid: 365ea80c1bbec3f4cabff2f0ff48350f, type: 2}
       propertyPath: PlayerSprites.Array.data[0]
       value: 
-      objectReference: {fileID: 1634781437603700, guid: aab135acbc5e2e748a151a079856e0bb,
+      objectReference: {fileID: 1246404974379432, guid: 62fa1fef5626ef642a844b6030fac2d9,
         type: 2}
     - target: {fileID: 11465304, guid: 365ea80c1bbec3f4cabff2f0ff48350f, type: 2}
       propertyPath: PlayerSprites.Array.data[1]
       value: 
-      objectReference: {fileID: 1025417388602608, guid: 28f4deaabeb1ee942a4db41c5ffcd2a0,
+      objectReference: {fileID: 1888348153045392, guid: 8b35ed7891fac0b44bb96c2507663a6d,
         type: 2}
     - target: {fileID: 11465304, guid: 365ea80c1bbec3f4cabff2f0ff48350f, type: 2}
       propertyPath: PlayerSprites.Array.data[2]
       value: 
-      objectReference: {fileID: 1535014816930186, guid: 78e1721c09e2167418214227d24cf433,
+      objectReference: {fileID: 1180438341165532, guid: 3b73437c9d809e94ab08d1c664d089df,
         type: 2}
     - target: {fileID: 11465304, guid: 365ea80c1bbec3f4cabff2f0ff48350f, type: 2}
       propertyPath: PlayerSprites.Array.data[3]
@@ -595,7 +595,7 @@ Prefab:
     - target: {fileID: 11465304, guid: 365ea80c1bbec3f4cabff2f0ff48350f, type: 2}
       propertyPath: AudioSources.Array.data[1]
       value: 
-      objectReference: {fileID: 166795128}
+      objectReference: {fileID: 1285214369}
     - target: {fileID: 8242840, guid: 365ea80c1bbec3f4cabff2f0ff48350f, type: 2}
       propertyPath: m_Volume
       value: 0.25
@@ -620,6 +620,7 @@ GameObject:
   - component: {fileID: 1899205806}
   - component: {fileID: 1899205805}
   - component: {fileID: 1899205804}
+  - component: {fileID: 1899205809}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -695,6 +696,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1899205809
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1899205803}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9ff10c5dd8e71e242b732e54b5b4da28, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &2043534614
 GameObject:
   m_ObjectHideFlags: 0
