@@ -103,7 +103,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1873675093277446}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.6307145, y: 1.536821, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4160009549339794}
@@ -116,7 +116,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1744246669995700}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.54, y: 2.8437443, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4160009549339794}
@@ -433,7 +433,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bioshrinktime: 1
-  growfactor: 0.5
   Size: 0
   SizeTriggersNews: 01000000050000000a0000000f000000140000001b0000002000000024000000290000002d0000003200000035000000380000003b0000003e000000
   SizeTriggersLevel: 160000002f0000003f000000
@@ -445,10 +444,6 @@ MonoBehaviour:
   Level1NumStates: 22
   Level2NumStates: 25
   Level3NumStates: 16
-  PlayerSprites:
-  - {fileID: 1246404974379432, guid: 62fa1fef5626ef642a844b6030fac2d9, type: 2}
-  - {fileID: 1888348153045392, guid: 8b35ed7891fac0b44bb96c2507663a6d, type: 2}
-  - {fileID: 1180438341165532, guid: 3b73437c9d809e94ab08d1c664d089df, type: 2}
 --- !u!114 &114075604015034676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -460,7 +455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5cd77820c02d624e93909f654bf68dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 10
+  Speed: 3.5
   SmoothTime: 0.5
   bacteriaslowtime: 2
   slowfactor: 10
