@@ -122,7 +122,7 @@ MonoBehaviour:
   minX: -10
   maxY: 10
   minY: -10
-  moveSpeed: 0.2
+  moveSpeed: 0.1
 --- !u!114 &11469752
 MonoBehaviour:
   m_ObjectHideFlags: 1
