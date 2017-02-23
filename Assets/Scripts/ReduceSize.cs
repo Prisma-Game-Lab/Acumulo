@@ -1,7 +1,11 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class ReduceSize : MonoBehaviour
-{
+{ 
+
+	// NIKO CHANGE - Now reduces alpha and fade out maybe it's better to change the name of functions and script
+
+
     #region variables
 
     public float ChangeSpeed;
@@ -38,9 +42,13 @@ public class ReduceSize : MonoBehaviour
         if (_changeSize)
         {
             _sizeFactor += Time.deltaTime * ChangeSpeed;
-            gameObject.transform.localScale = Vector3.Lerp(_initialSize, _targetSize, _sizeFactor);
+			Color color = GetComponent<SpriteRenderer>().color;
+			color.a = Mathf.Lerp(color.a, 0f, 0.07f);
+			GetComponent<SpriteRenderer>().color = color;
 
-            if (_sizeFactor == 1)
+			//gameObject.transform.localScale = Vector3.Lerp(_initialSize, _targetSize, _sizeFactor);
+
+            if (GetComponent<SpriteRenderer>().color.a == 0)
             {
                 _changeSize = false;
                 Destroy(gameObject);
