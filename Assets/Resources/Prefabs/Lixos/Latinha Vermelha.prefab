@@ -30,7 +30,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 138578}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.2, y: 3.95, z: 0}
+  m_LocalPosition: {x: -14.438467, y: 17.56146, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -70,14 +70,16 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
-    - - {x: -0.076455116, y: 0.15627956}
-      - {x: -0.16772175, y: 0.05253744}
-      - {x: -0.16446686, y: -0.04611969}
-      - {x: -0.0716362, y: -0.1529603}
-      - {x: 0.030320168, y: -0.1514597}
-      - {x: 0.13467407, y: -0.052182198}
-      - {x: 0.13150978, y: 0.056655884}
-      - {x: 0.040246964, y: 0.15095091}
+    - - {x: -0.00614357, y: 0.065662384}
+      - {x: -0.04349327, y: 0.051807404}
+      - {x: -0.068660736, y: 0.014160156}
+      - {x: -0.060121536, y: -0.0044555664}
+      - {x: -0.038690567, y: -0.036224365}
+      - {x: -0.0068454742, y: -0.04452896}
+      - {x: 0.023010254, y: -0.03403473}
+      - {x: 0.04172516, y: -0.012523651}
+      - {x: 0.04486847, y: 0.025299072}
+      - {x: 0.023975372, y: 0.051685333}
 --- !u!95 &9593620
 Animator:
   serializedVersion: 3
@@ -180,7 +182,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 218562893
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4cdec826c55f76a41b6871e705f1bab6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 536699aa3884f83409c460354f28d924, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

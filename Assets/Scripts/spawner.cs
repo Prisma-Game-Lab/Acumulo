@@ -6,6 +6,7 @@ public class spawner : MonoBehaviour {
     public int num;
     public float time;
 	public float spawn_rate;
+	public float initialDelay;
 	public AnimationCurve rateovertime;
     public float RadiusMultiplier = 1;
     private GameObject _player;
@@ -17,7 +18,7 @@ public class spawner : MonoBehaviour {
     {
         clock = Time.time;
 		rate = Mathf.Floor (rateovertime.Evaluate (clock / time) * num);
-		Invoke("spawn", spawn_rate);
+		Invoke("spawn", initialDelay);
         _player = GameObject.FindGameObjectWithTag("Player");
 	}
 	

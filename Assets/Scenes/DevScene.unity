@@ -314,7 +314,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22413102, guid: 808b6c5ccaab07547a609750f64b4c9a, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 22413102, guid: 808b6c5ccaab07547a609750f64b4c9a, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -1637,15 +1637,22 @@ MonoBehaviour:
   trash: {fileID: 11469752, guid: 652eac406d77e434691fb5b5a7f697d8, type: 2}
   num: 100
   time: 300
-  spawn_rate: 3
+  spawn_rate: 2
+  initialDelay: 0
   rateovertime:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
-      time: 0
-      value: 0.012500061
+      time: -0.004166667
+      value: 0.10750007
       inSlope: 0
       outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.1401137
+      value: 0.04110691
+      inSlope: -0.11415609
+      outSlope: -0.11415609
       tangentMode: 0
     - serializedVersion: 2
       time: 1
@@ -2902,6 +2909,70 @@ Transform:
   m_Father: {fileID: 1401264698}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &849361409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 849361410}
+  - component: {fileID: 849361411}
+  m_Layer: 0
+  m_Name: spawner Carro
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &849361410
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 849361409}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1464780806}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &849361411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 849361409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4579714f43462b4bb5065c21e531bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trash: {fileID: 11469752, guid: ed46aa9a95bc7e442969556a003b88f9, type: 2}
+  num: 100
+  time: 300
+  spawn_rate: 3
+  initialDelay: 0
+  rateovertime:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0.013125096
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0.013750097
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  RadiusMultiplier: 8
 --- !u!1 &864186989
 GameObject:
   m_ObjectHideFlags: 0
@@ -3106,7 +3177,7 @@ GameObject:
   - component: {fileID: 926056283}
   - component: {fileID: 926056284}
   m_Layer: 0
-  m_Name: spawner barco
+  m_Name: spawner barco de lixo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3139,19 +3210,20 @@ MonoBehaviour:
   trash: {fileID: 11435142, guid: 3240d62628f17104ca2e2ece71d7ea30, type: 2}
   num: 100
   time: 300
-  spawn_rate: 80
+  spawn_rate: 30
+  initialDelay: 0
   rateovertime:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0.015000083
+      value: 0.021250084
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
       time: 1
-      value: 0.015000083
+      value: 0.021250084
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -3199,22 +3271,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4579714f43462b4bb5065c21e531bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trash: {fileID: 11427432, guid: c9c36c0f99948a44a8cd10cdf23e58b9, type: 2}
+  trash: {fileID: 114327418009853436, guid: f724b86571fb820479a5886db8f37849, type: 2}
   num: 100
   time: 300
-  spawn_rate: 30
+  spawn_rate: 20
+  initialDelay: 0
   rateovertime:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0.010625103
+      value: 0.029375102
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
       time: 1
-      value: 0.010625103
+      value: 0.029375102
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -4509,6 +4582,7 @@ MonoBehaviour:
   num: 100
   time: 300
   spawn_rate: 5
+  initialDelay: 0
   rateovertime:
     serializedVersion: 2
     m_Curve:
@@ -4669,6 +4743,8 @@ Transform:
   - {fileID: 978938130}
   - {fileID: 926056283}
   - {fileID: 1404691349}
+  - {fileID: 849361410}
+  - {fileID: 1567989781}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4918,6 +4994,70 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vel: 0.8
   dir: 1
+--- !u!1 &1567989780
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1567989781}
+  - component: {fileID: 1567989782}
+  m_Layer: 0
+  m_Name: spawner Barco
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1567989781
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1567989780}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1464780806}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1567989782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1567989780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4579714f43462b4bb5065c21e531bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trash: {fileID: 11469752, guid: d5f585b08214a4b478034fdb9f0667ff, type: 2}
+  num: 100
+  time: 300
+  spawn_rate: 3
+  initialDelay: 0
+  rateovertime:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0.013750097
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0.013750097
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  RadiusMultiplier: 8
 --- !u!1 &1614240061
 GameObject:
   m_ObjectHideFlags: 0
@@ -5134,15 +5274,22 @@ MonoBehaviour:
   trash: {fileID: 11438904, guid: e82676efa24edd74e9d286218247680a, type: 2}
   num: 100
   time: 300
-  spawn_rate: 10
+  spawn_rate: 7
+  initialDelay: 0
   rateovertime:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
-      time: 0
-      value: 0.0331251
+      time: -0.004166667
+      value: 0.13250011
       inSlope: 0
       outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.14031258
+      value: 0.061714184
+      inSlope: -0.09936916
+      outSlope: -0.09936916
       tangentMode: 0
     - serializedVersion: 2
       time: 1
@@ -5752,19 +5899,20 @@ MonoBehaviour:
   trash: {fileID: 11419392, guid: 9590d93be6fe1364194db8e4869935a9, type: 2}
   num: 100
   time: 300
-  spawn_rate: 50
+  spawn_rate: 20
+  initialDelay: 0
   rateovertime:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0.008750103
+      value: 0.027500104
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
       time: 1
-      value: 0.008750103
+      value: 0.027500104
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -5816,6 +5964,21 @@ Prefab:
       propertyPath: News
       value: 
       objectReference: {fileID: 87437838}
+    - target: {fileID: 114075604015034676, guid: f49cd5c9dbd57e14b8dfbbebadf483a5,
+        type: 2}
+      propertyPath: Speed
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114065016335297970, guid: f49cd5c9dbd57e14b8dfbbebadf483a5,
+        type: 2}
+      propertyPath: TrashZoom
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 114065016335297970, guid: f49cd5c9dbd57e14b8dfbbebadf483a5,
+        type: 2}
+      propertyPath: LevelZoom
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f49cd5c9dbd57e14b8dfbbebadf483a5, type: 2}
   m_IsPrefabParent: 0
@@ -5983,7 +6146,7 @@ Transform:
   - {fileID: 1981864946}
   - {fileID: 1897848546}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1839880539
 GameObject:
@@ -6028,15 +6191,22 @@ MonoBehaviour:
   trash: {fileID: 11478680, guid: eca50c6a602c9dd44ad52d749797b776, type: 2}
   num: 100
   time: 300
-  spawn_rate: 3
+  spawn_rate: 5
+  initialDelay: 0
   rateovertime:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0.013750097
+      value: 0.0806251
       inSlope: 0
       outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.1808556
+      value: 0.030672334
+      inSlope: -0.030125711
+      outSlope: -0.030125711
       tangentMode: 0
     - serializedVersion: 2
       time: 1

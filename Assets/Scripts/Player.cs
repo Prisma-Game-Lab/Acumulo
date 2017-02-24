@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     public int Level1NumStates;
     public int Level2NumStates;
 	public int Level3NumStates;
+	public float TrashZoom;
+	public float LevelZoom;
 	//public GameObject[] PlayerSprites;
 
     private int _sizeTriggerCounter;
@@ -112,7 +114,7 @@ public class Player : MonoBehaviour
 
 		if (level != 0)
 		{
-			Camera.main.GetComponent<CameraFeats>().ZoomOut(1);
+			Camera.main.GetComponent<CameraFeats>().ZoomOut(LevelZoom);
 		}
 	}
 
@@ -193,7 +195,7 @@ public class Player : MonoBehaviour
             }
 
             _gm.CheckLevelChange(Size);
-            Camera.main.GetComponent<CameraFeats>().ZoomOut(0.05f);
+			Camera.main.GetComponent<CameraFeats>().ZoomOut(TrashZoom);
         }
     }
 

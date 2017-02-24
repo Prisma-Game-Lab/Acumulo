@@ -30,7 +30,7 @@ GameObject:
   - component: {fileID: 11441204}
   - component: {fileID: 11435142}
   m_Layer: 0
-  m_Name: Barco
+  m_Name: Barco de Lixo
   m_TagString: Collectable3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

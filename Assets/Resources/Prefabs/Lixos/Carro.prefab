@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 11474256}
   - component: {fileID: 11438082}
   m_Layer: 0
-  m_Name: WashMachine
+  m_Name: Carro
   m_TagString: Collectable1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
