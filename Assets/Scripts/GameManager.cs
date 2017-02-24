@@ -139,10 +139,10 @@ public class GameManager : MonoBehaviour {
             _player = _playerObj.GetComponent<Player>();
 			_player.ChangeLevel(0);
         }
-        if (SceneManager.GetActiveScene().name == "DevScene")
-        {
-            AudioSources[1].Play();
-        }
+        //if (SceneManager.GetActiveScene().name == "DevScene")
+        //{
+        //    AudioSources[1].Play();
+        //}
     }
 
     /// <summary>
@@ -170,6 +170,14 @@ public class GameManager : MonoBehaviour {
         {
 			_player.ChangeLevel(1);
             _level++;
+        }
+
+        for(int i = 0; i < 8; i++)
+        {
+            if (size == _player.SizeTriggersAudio[i])
+            {
+                AudioSources[i].Play();
+            }
         }
     } 
 

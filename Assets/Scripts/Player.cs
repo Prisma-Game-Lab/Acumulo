@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public int Size = 1;
     public int[] SizeTriggersNews;
     public int[] SizeTriggersLevel;
+    public int[] SizeTriggersAudio;
     public Noticia News;
     public float Level1PixelSizeX;
     public float Level2PixelSizeX;
