@@ -22,18 +22,17 @@ public class Noticia : MonoBehaviour {
 	void Start ()
     {
 		Newscounter = 0;
-		if(!PlayerPrefs.HasKey("counter"))PlayerPrefs.SetInt ("counter", 0);
+
+        if (!PlayerPrefs.HasKey("counter"))
+        {
+            PlayerPrefs.SetInt("counter", 0);
+        }
+
         textCounter = 0;
         TriggerNews();
 		//para as noticias especificas: GameManager.register(index,score)
 		//la no GM, a register(int,int) poe num vetor e no update checa esse vetor. se bateu o score, chama ImportantNews com o index associado 
 		//problemas: uma noticia importante pode pausar o jogo porem nao pausar o processo de noticias aleatorias
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		
 	}
 
     public void TriggerTextNews()
@@ -62,7 +61,7 @@ public class Noticia : MonoBehaviour {
             if (textCounter - 10 == 1)
             {
                 //barco
-                Spawner.transform.FindChild("spawner barco").gameObject.SetActive(true);
+                Spawner.transform.FindChild("spawner barco de lixo").gameObject.SetActive(true);
             }
             else if (textCounter - 10 == 3)
             {
@@ -78,8 +77,12 @@ public class Noticia : MonoBehaviour {
         swap = Place.sprite;
         Place.sprite = News[Newscounter];
         Newscounter++;
-		if(Newscounter>PlayerPrefs.GetInt ("counter"))
-			PlayerPrefs.SetInt ("counter", Newscounter);
+
+        if (Newscounter > PlayerPrefs.GetInt("counter"))
+        {
+            PlayerPrefs.SetInt("counter", Newscounter);
+        }
+
         if (Newscounter >= News.Length)
         {
             Newscounter = 0;

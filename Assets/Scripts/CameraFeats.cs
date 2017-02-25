@@ -5,6 +5,9 @@ public class CameraFeats : MonoBehaviour
     #region variables
 
     public float ZoomSpeed;
+    public float LevelZoom;
+    public float TrashZoom;
+
 
     private float _initialSize;
     private float _targetSize;
@@ -12,21 +15,6 @@ public class CameraFeats : MonoBehaviour
     private float _zoomFactor;
 
     #endregion
-
-
-    /// <summary>
-    /// Performs a zoom out
-    /// </summary>
-    /// <param name="value">value to increment</param>
-    public void ZoomOut(float value)
-    {
-        _initialSize = gameObject.GetComponent<Camera>().orthographicSize;
-        _targetSize = _initialSize + value;
-        _zoomFactor = 0f;
-
-        _changeSize = true;
-    }
-
 
 // Use this for initialization
 	void Start () {
@@ -46,5 +34,55 @@ public class CameraFeats : MonoBehaviour
                 _changeSize = false;
             }
         }
+    }
+
+    /// <summary>
+    /// Performs a zoom out
+    /// </summary>
+    /// <param name="changeLevel">true if level change</param>
+    public void ZoomOut(bool changeLevel)
+    {
+        //if (!_changeSize || changeLevel)
+        //{
+        //    _initialSize = gameObject.GetComponent<Camera>().orthographicSize;
+        //    _targetSize = _initialSize + ((changeLevel) ? LevelZoom : TrashZoom);
+        //    _zoomFactor = 0f;
+
+        //    _changeSize = true;
+        //}
+
+        _initialSize = gameObject.GetComponent<Camera>().orthographicSize;
+
+        if (_changeSize)
+        {
+            _targetSize += ((changeLevel) ? LevelZoom : TrashZoom);
+        }
+        else
+        {
+            _targetSize = _initialSize + ((changeLevel) ? LevelZoom : TrashZoom);
+        }
+        _zoomFactor = 0f;
+
+        _changeSize = true;
+    }
+
+    /// <summary>
+    /// Performs a zoom in
+    /// </summary>
+    public void ZoomIn()
+    {
+        _initialSize = gameObject.GetComponent<Camera>().orthographicSize;
+
+        if (_changeSize)
+        {
+            _targetSize -= TrashZoom;
+        }
+        else
+        {
+            _targetSize = _initialSize - TrashZoom;
+        }
+        _zoomFactor = 0f;
+
+        _changeSize = true;
     }
 }

@@ -18,8 +18,6 @@ public class Player : MonoBehaviour
     public int Level1NumStates;
     public int Level2NumStates;
 	public int Level3NumStates;
-	public float TrashZoom;
-	public float LevelZoom;
 	//public GameObject[] PlayerSprites;
 
     private int _sizeTriggerCounter;
@@ -101,21 +99,16 @@ public class Player : MonoBehaviour
 	/// <param name="level">Level number</param>
 	public void ChangeLevel(int level)
 	{
-		//GameObject _image = PlayerSprites[level];
-		for(int i = 0; i < transform.childCount; i++)
-		{
-			transform.GetChild(i).gameObject.SetActive(false);
-		}
-		transform.GetChild(level).gameObject.SetActive(true);
-		//GameObject obj = Instantiate(_image);
-		//obj.transform.parent = transform;
-		//obj.transform.localRotation = Quaternion.identity;
-		//obj.transform.localPosition = Vector3.zero;
-		//obj.transform.localScale = Vector3.one;
+        if (level > 0 && level < 3)
+        {
+            Animator anim = transform.GetChild(level - 1).gameObject.GetComponent<Animator>();
+            anim.SetBool("IsEvol", true);
+        }
 
-		if (level != 0)
+        if (level != 0)
 		{
-			Camera.main.GetComponent<CameraFeats>().ZoomOut(LevelZoom);
+			Camera.main.GetComponent<CameraFeats>().ZoomOut(true);
+            GetComponent<Movement>().Speed += 1;
 		}
 	}
 
@@ -195,8 +188,8 @@ public class Player : MonoBehaviour
                 }
             }
 
+			Camera.main.GetComponent<CameraFeats>().ZoomOut(false);
             _gm.CheckLevelChange(Size);
-			Camera.main.GetComponent<CameraFeats>().ZoomOut(TrashZoom);
         }
     }
 
@@ -239,6 +232,8 @@ public class Player : MonoBehaviour
                 child.localScale = newSize;
             }
             Size--;
+
+            Camera.main.GetComponent<CameraFeats>().ZoomIn();
         }
     }
     public void Bio()

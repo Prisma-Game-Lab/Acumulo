@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 11438082}
   m_Layer: 0
   m_Name: Carro
-  m_TagString: Collectable2
+  m_TagString: Collectable3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

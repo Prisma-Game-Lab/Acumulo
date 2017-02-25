@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Animatic : MonoBehaviour
@@ -15,7 +15,7 @@ public class Animatic : MonoBehaviour
 
     private void Update()
     {
-        if(!_animatic.isPlaying || Input.anyKeyDown)
+        if(Input.anyKeyDown)
         {
             SceneManager.LoadScene("DevScene");
         }

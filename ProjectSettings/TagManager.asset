@@ -10,6 +10,7 @@ TagManager:
   - Collectable1
   - Collectable2
   - Collectable3
+  - spawnpoint
   layers:
   - Default
   - TransparentFX

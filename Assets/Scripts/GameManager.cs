@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour {
 
     public float time;
     public AudioSource[] AudioSources;
+    //[HideInInspector]
+    public bool[] ActiveAudios;
 
     private Text _scoreText;
     private Text _timeText;
@@ -19,6 +21,7 @@ public class GameManager : MonoBehaviour {
 	private GameObject _pause;
     static private GameObject _pauseCanvas;
     static private float _volume;
+    private GameObject _spawner;
 
     public int Level
     {
@@ -43,6 +46,8 @@ public class GameManager : MonoBehaviour {
         }
         
         DontDestroyOnLoad(gameObject);
+
+        _volume = AudioSources[0].volume;
     }
 
     // Use this for initialization
@@ -50,13 +55,13 @@ public class GameManager : MonoBehaviour {
     {
 		_pause = Resources.Load<GameObject> ("Prefabs/PauseCanvas");
 		_score = 0;
-        _volume = AudioSources[0].volume;
-        AudioSources[0].Play();
-        for(int i = 0; i < AudioSources.Length; i++)
-        {
-            AudioSources[i].volume = _volume;
-        }
+        //_volume = AudioSources[0].volume;
         _level = 1;
+
+        for (int i = 1; i < ActiveAudios.Length; i++)
+        {
+            ActiveAudios[i] = false;
+        }
     }
 
 	void End()
@@ -81,7 +86,10 @@ public class GameManager : MonoBehaviour {
         }
         for (int i = 0; i < AudioSources.Length; i++)
         {
-            AudioSources[i].volume = _volume;
+            if(ActiveAudios[i])
+            {
+                AudioSources[i].volume = _volume;
+            }
         }
     }
 
@@ -116,6 +124,15 @@ public class GameManager : MonoBehaviour {
     }
 
     /// <summary>
+    /// Returns the volume
+    /// </summary>
+    /// <returns>volume level</returns>
+    public float GetVolume()
+    {
+        return _volume;
+    }
+
+    /// <summary>
     /// Scene load callback
     /// </summary>
     void OnLevelWasLoaded()
@@ -139,10 +156,17 @@ public class GameManager : MonoBehaviour {
             _player = _playerObj.GetComponent<Player>();
 			_player.ChangeLevel(0);
         }
-        //if (SceneManager.GetActiveScene().name == "DevScene")
-        //{
-        //    AudioSources[1].Play();
-        //}
+
+        if (!_spawner)
+        {
+            _spawner = GameObject.Find("spawners");
+        }
+
+        for (int i = 1; i < ActiveAudios.Length; i++)
+        {
+            ActiveAudios[i] = false;
+            AudioSources[i].volume = 0;
+        }
     }
 
     /// <summary>
@@ -157,18 +181,29 @@ public class GameManager : MonoBehaviour {
 
     public void CheckLevelChange(int size)
     {
-        if (size == _player.SizeTriggersLevel[2] && _level == 3)
+        if (size == _player.SizeTriggersLevel[2] && _level == 3) //end game
         {
             SceneManager.LoadScene("EndingDestruction");
         }
-        else if (size == _player.SizeTriggersLevel[1] && _level == 2)
+        else if (size == _player.SizeTriggersLevel[1] && _level == 2)//finished level 2
         {
-			_player.ChangeLevel(2);
+            _spawner.transform.FindChild("spawner Barco").gameObject.SetActive(true);
+            _spawner.transform.FindChild("spawner Carro").gameObject.SetActive(true);
+            _spawner.transform.FindChild("spawner Plataforma").gameObject.SetActive(true);
+            _spawner.transform.FindChild("spawner Sacola").gameObject.SetActive(false);
+            _spawner.transform.FindChild("spawner Latinha").gameObject.SetActive(false);
+            _spawner.transform.FindChild("spawner Garrafa").gameObject.SetActive(false);
+            Destroy(GameObject.Find("Level1Trash"));
+
+            _player.ChangeLevel(2);
             _level++;
         }
-        else if (size == _player.SizeTriggersLevel[0] && _level == 1)
+        else if (size == _player.SizeTriggersLevel[0] && _level == 1)//finished level 1
         {
-			_player.ChangeLevel(1);
+            _spawner.transform.FindChild("spawner Roda").gameObject.SetActive(true);
+            _spawner.transform.FindChild("spawner Tortuga").gameObject.SetActive(true);
+            _spawner.transform.FindChild("spawner Wash Machine").gameObject.SetActive(true);
+            _player.ChangeLevel(1);
             _level++;
         }
 
@@ -176,7 +211,7 @@ public class GameManager : MonoBehaviour {
         {
             if (size == _player.SizeTriggersAudio[i])
             {
-                AudioSources[i].Play();
+                ActiveAudios[i+1] = true;
             }
         }
     } 

@@ -46,9 +46,8 @@ public class ReduceSize : MonoBehaviour
 			color.a = Mathf.Lerp(color.a, 0f, 0.07f);
 			GetComponent<SpriteRenderer>().color = color;
 
-			//gameObject.transform.localScale = Vector3.Lerp(_initialSize, _targetSize, _sizeFactor);
-
-            if (GetComponent<SpriteRenderer>().color.a == 0)
+            //gameObject.transform.localScale = Vector3.Lerp(_initialSize, _targetSize, _sizeFactor);
+            if (GetComponent<SpriteRenderer>().color.a <= 0.1)
             {
                 _changeSize = false;
                 Destroy(gameObject);

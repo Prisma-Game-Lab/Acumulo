@@ -8,25 +8,25 @@ public class acheivementbutton : MonoBehaviour {
 	public string url;
 	public int index;
 	public GameObject locked;
+
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 		if (PlayerPrefs.HasKey ("counter") && PlayerPrefs.GetInt ("counter") >= index)
-			enable();
-		
-			
+        {
+            enable();
+        }	
 	}
-	void enable(){
+
+	void enable()
+    {
 		Button btn = GetComponent<Button> ();
 		btn.onClick.AddListener (onClick);
 		locked.SetActive (false);
 	}
 
-	void onClick(){
+	void onClick()
+    {
 		Application.OpenURL (url);
-	}
-
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }
