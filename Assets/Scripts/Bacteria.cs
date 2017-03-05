@@ -5,11 +5,13 @@ public class Bacteria : Obstacle
     public int value;
     public float deathtime;
 
+    private GameManager _gm;
+
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && !_gm.PlayerEvolving)
         {
-            other.gameObject.GetComponent<Movement>().Slow();
+            other.gameObject.GetComponent<Movement>().Slow(1.5f);
             die();
         }
     }
@@ -31,6 +33,11 @@ public class Bacteria : Obstacle
     void Awake()
     {
         //Invoke("die", deathtime);
+        GameObject obj = GameObject.FindGameObjectWithTag("GM");
+        if (obj)
+        {
+            _gm = obj.GetComponent<GameManager>();
+        }
     }
     void Update()
     {

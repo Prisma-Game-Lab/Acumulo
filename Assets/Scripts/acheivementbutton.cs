@@ -23,6 +23,7 @@ public class acheivementbutton : MonoBehaviour {
 		Button btn = GetComponent<Button> ();
 		btn.onClick.AddListener (onClick);
 		locked.SetActive (false);
+        GetComponent<Image>().color = new Color(GetComponent<Image>().color.r, GetComponent<Image>().color.g, GetComponent<Image>().color.b, 250);
 	}
 
 	void onClick()

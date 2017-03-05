@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6076350}
   - component: {fileID: 11474256}
   - component: {fileID: 11438082}
+  - component: {fileID: 82941334142856780}
   m_Layer: 0
   m_Name: "Sacola Pl\xE1stica Azul"
   m_TagString: Collectable1
@@ -30,7 +31,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 109374}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.408779, y: 19.428833, z: 0}
+  m_LocalPosition: {x: -6.829679, y: 19.75883, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -70,14 +71,13 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
-    - - {x: 0.14562035, y: 0.12185621}
-      - {x: -0.21769142, y: 0.06918049}
-      - {x: -0.23933029, y: 0.07068539}
-      - {x: -0.2898655, y: -0.07563496}
-      - {x: -0.24485016, y: -0.08707309}
-      - {x: 0.1889286, y: -0.08563495}
-      - {x: 0.2982273, y: -0.020618916}
-      - {x: 0.28678894, y: 0.049247265}
+    - - {x: 0.016467094, y: 0.0652504}
+      - {x: 0.15491104, y: 0.060836792}
+      - {x: 0.19847584, y: 0.020393372}
+      - {x: 0.13473797, y: -0.017559052}
+      - {x: 0.024664879, y: -0.026901245}
+      - {x: -0.17939663, y: -0.018859863}
+      - {x: -0.17268658, y: 0.041057587}
 --- !u!95 &9591212
 Animator:
   serializedVersion: 3
@@ -136,6 +136,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: 50
   deathtime: 20
+  firstAudioClip: {fileID: 8300000, guid: c9f3380e3d83d5344987e708fc120777, type: 3}
+  secondAudioClip: {fileID: 8300000, guid: 42790e8a22e485048b2e12d47df533b5, type: 3}
+  thirdAudioClip: {fileID: 8300000, guid: 490efcb6541a3a64abafe36fa920b71a, type: 3}
 --- !u!114 &11474256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -203,3 +206,83 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 109374}
   m_IsPrefabParent: 1
+--- !u!82 &82941334142856780
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 109374}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0

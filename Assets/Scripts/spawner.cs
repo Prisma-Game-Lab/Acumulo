@@ -11,12 +11,27 @@ public class spawner : MonoBehaviour {
 	public AnimationCurve rateovertime;
     public float RadiusMultiplier = 1;
 
+    public float RadiusFar
+    {
+        get
+        {
+            return _radiusFar;
+        }
+        set
+        {
+            _radiusFar = value;
+        }
+    }
+
     private GameObject _level1Trash;
     private GameObject _level2Trash;
     private GameObject _level3Trash;
 
     private GameObject _player;
+    private GameManager _gm;
     float rate,clock;
+
+    static private float _radiusFar;
 
     //public AnimationCurve distribution_on_time;
 
@@ -30,6 +45,17 @@ public class spawner : MonoBehaviour {
         _level2Trash = GameObject.Find("Level2Trash");
         _level3Trash = GameObject.Find("Level3Trash");
         spawnpoints = GameObject.FindGameObjectsWithTag("spawnpoint");
+
+        GameObject obj = GameObject.FindGameObjectWithTag("GM");
+        if (obj)
+        {
+            _gm = obj.GetComponent<GameManager>();
+        }
+
+        if(_radiusFar < 3)
+        {
+            _radiusFar = 3;
+        }
     }
 	
 	// Update is called once per frame
@@ -38,6 +64,11 @@ public class spawner : MonoBehaviour {
         clock += Time.deltaTime;
 	}
 
+    /// <summary>
+    /// Checks if point is inside cam view
+    /// </summary>
+    /// <param name="point">point</param>
+    /// <returns>true if inside</returns>
     bool insidecamera(GameObject point)
     {
         Vector3 topRightPos = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, 10.0f));
@@ -54,6 +85,59 @@ public class spawner : MonoBehaviour {
         }
     }
 
+    void OnDrawGizmos()
+    {
+        if(_player)
+        {
+            Gizmos.DrawWireSphere(_player.transform.position, RadiusFar);
+        }
+    }
+
+    /// <summary>
+    /// Checks if point is far from player
+    /// </summary>
+    /// <param name="point">point</param>
+    /// <returns>true if far</returns>
+    bool FarFromPlayer(GameObject point)
+    {
+        Vector2 pos = new Vector2(_player.transform.position.x, _player.transform.position.y);
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(pos, RadiusFar);
+
+        for (int i = 0; i < hitColliders.Length; i++)
+        {
+            if (hitColliders[i].gameObject.name == point.name)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /// <summary>
+    /// Checks if point is on top of other trash
+    /// </summary>
+    /// <param name="point">point</param>
+    /// <returns>true if on top</returns>
+    bool OnTopOfTrash(Vector2 point)
+    {
+        Vector2 pos = new Vector2(point.x, point.y);
+        Collider2D[] hitColliders = Physics2D.OverlapPointAll(pos);
+
+        for (int i = 0; i < hitColliders.Length; i++)
+        {
+            if (hitColliders[i].gameObject.tag != "spawnpoint" && hitColliders[i].gameObject.tag != "Bounds")
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /// <summary>
+    /// spawns the trash
+    /// </summary>
     void spawn()
     {
 		for (int i = 0; i < rate; i++)
@@ -76,31 +160,35 @@ public class spawner : MonoBehaviour {
                     break;
             }
             
-
-
             GameObject spawnpoint = spawnpoints[Mathf.FloorToInt(Random.Range(0,spawnpoints.Length-1))];
-            while(insidecamera(spawnpoint)){
-                spawnpoint = spawnpoints[Mathf.FloorToInt(Random.Range(0,spawnpoints.Length-1))];
+            int j = 0, p = 0;
+            bool foundPoint = false;
+            while(!foundPoint && p < 50)
+            {
+                while ((insidecamera(spawnpoint) || FarFromPlayer(spawnpoint)) && j < 50)// || OnTopOfTrash(spawnpoint))
+                {
+                    spawnpoint = spawnpoints[Mathf.FloorToInt(Random.Range(0, spawnpoints.Length - 1))];
+                    j++;
+                }
+                o.transform.position = Random.insideUnitSphere * RadiusMultiplier + spawnpoint.transform.position;
+                if (!OnTopOfTrash(o.transform.position))
+                {
+                    foundPoint = true;
+                }
+                if(insidecamera(o.gameObject))
+                {
+                    foundPoint = false;
+                }
+                p++;
             }
-			o.transform.position = Random.insideUnitSphere * RadiusMultiplier + spawnpoint.transform.position;
-			
 
-
-            //Vector3 newPos;
-			//float diff;
-			//if (o.transform.position.y < topPos.y && o.transform.position.y > middlePos.y) {
-			//	//joga pra cima
-			//	diff = topPos.y - o.transform.position.y;
-			//	newPos = new Vector3 (o.transform.position.x, o.transform.position.y + 2 * diff, o.transform.position.z);
-			//	o.transform.position = newPos;
-			//} else if (o.transform.position.y > bottomPos.y && o.transform.position.y < middlePos.y) {
-			//	//joga pra baixo
-			//	diff = o.transform.position.y - bottomPos.y;
-			//	newPos = new Vector3 (o.transform.position.x, o.transform.position.y - 2 * diff, o.transform.position.z);
-			//	o.transform.position = newPos;
-			//}
+            if(o.gameObject.tag == "Collectable1" && _gm.Level == 3)
+            {
+                Destroy(o.gameObject);
+            }
 		}
-		if (clock < time) {
+		if (clock < time)
+        {
 			rate = Mathf.Floor (rateovertime.Evaluate (clock / time) * num);
 			Invoke ("spawn", spawn_rate);
 		}

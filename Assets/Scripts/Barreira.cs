@@ -4,12 +4,14 @@ public class Barreira : Obstacle
 {
     public int value;
     public float deathtime;
+    private AudioSource boiaSound;
+    private GameManager _gm;
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<Movement>().Slow();
-            //die();
+            boiaSound.Play();
+            other.gameObject.GetComponent<Movement>().Slow(3);
         }
     }
     /*
@@ -27,12 +29,18 @@ public class Barreira : Obstacle
     {
         Destroy(this.gameObject);
     }
-    void Awake()
+    void Start()
     {
         //Invoke("die", deathtime);
+        boiaSound = gameObject.GetComponent<AudioSource>();
+        GameObject obj = GameObject.FindGameObjectWithTag("GM");
+        if (obj)
+        {
+            _gm = obj.GetComponent<GameManager>();
+        }
     }
     void Update()
     {
-
+        boiaSound.volume = _gm.GetVolume();
     }
 }

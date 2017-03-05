@@ -11,6 +11,8 @@ public class Movement : MonoBehaviour
     public float SmoothTime;
     public float bacteriaslowtime;
     public float slowfactor;
+    public Player Player;
+
     private Vector3 _velocity;
     private Vector3 _targetPosition;
     private Vector3 _lastDir;
@@ -42,22 +44,57 @@ public class Movement : MonoBehaviour
 
         _targetPosition = transform.position;
 
+        bool right = false;
+        bool up = false;
+        bool left = false;
+        bool down = false;
+
+        if(_lastDir.normalized == Vector3.right)
+        {
+            right = true;
+        }
+        else if(_lastDir.normalized == Vector3.left)
+        {
+            left = true;
+        }
+
+        if(_lastDir.normalized == Vector3.up)
+        {
+            up = true;
+        }
+        else if (_lastDir.normalized == Vector3.down)
+        {
+            down = true;
+        }
+
         if ((h != 0) || (v != 0))
         {
             _targetPosition += inputMove * Time.deltaTime * Speed;
             _lastDir += _targetPosition - transform.position;
         }
 
-        _lastDir = Vector3.ClampMagnitude(_lastDir, 0.2f);
+        _lastDir = Vector3.ClampMagnitude(_lastDir, 0.05f);
+
+        if ((_lastDir.normalized == Vector3.right && left == true) || (_lastDir.normalized == Vector3.left && right == true))
+        {
+            Player.DeactivateTrail();
+            Player.Invoke("ActivateTrail",1);
+        }
+
+        if ((_lastDir.normalized == Vector3.up && down == true) || (_lastDir.normalized == Vector3.down && up == true))
+        {
+            Player.DeactivateTrail();
+            Player.Invoke("ActivateTrail", 1);
+        }
 
         transform.position = Vector3.SmoothDamp(transform.position, _targetPosition + _lastDir, ref _velocity, SmoothTime);
 #endif
     }
 
-    public void Slow()
+    public void Slow(float slowTime)
     {
         Speed /= slowfactor;
-        Invoke("Fast", bacteriaslowtime);
+        Invoke("Fast", slowTime);
 
     }
     public void Fast()

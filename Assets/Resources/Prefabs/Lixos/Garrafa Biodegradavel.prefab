@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6090104}
   - component: {fileID: 114853346820275272}
   - component: {fileID: 114397710696385334}
+  - component: {fileID: 82118677963935854}
   m_Layer: 0
   m_Name: Garrafa Biodegradavel
   m_TagString: Collectable3
@@ -45,7 +46,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 143684}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.948, y: -2.993, z: 0}
+  m_LocalPosition: {x: -8.504761, y: 20.782942, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 435044}
@@ -99,11 +100,11 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
-    - - {x: -0.0063819885, y: 0.11755657}
-      - {x: 0.05140066, y: 0.062744856}
-      - {x: 0.048756123, y: -0.1091485}
-      - {x: -0.05110216, y: -0.10348916}
-      - {x: -0.058594227, y: 0.060273647}
+    - - {x: -0.0052747726, y: 0.07217598}
+      - {x: 0.0049142838, y: 0.03728676}
+      - {x: 0.004483223, y: -0.08147621}
+      - {x: -0.015683174, y: -0.083566666}
+      - {x: -0.023176193, y: 0.027069092}
 --- !u!95 &9521008
 Animator:
   serializedVersion: 3
@@ -134,6 +135,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: 100
   deathtime: 10
+  firstAudioClip: {fileID: 8300000, guid: c9f3380e3d83d5344987e708fc120777, type: 3}
+  secondAudioClip: {fileID: 8300000, guid: 42790e8a22e485048b2e12d47df533b5, type: 3}
+  thirdAudioClip: {fileID: 8300000, guid: 490efcb6541a3a64abafe36fa920b71a, type: 3}
 --- !u!114 &11479986
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -192,6 +196,86 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 143684}
   m_IsPrefabParent: 1
+--- !u!82 &82118677963935854
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143684}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114397710696385334
 MonoBehaviour:
   m_ObjectHideFlags: 1

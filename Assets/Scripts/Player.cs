@@ -18,10 +18,15 @@ public class Player : MonoBehaviour
     public int Level1NumStates;
     public int Level2NumStates;
 	public int Level3NumStates;
-	//public GameObject[] PlayerSprites;
+    public spawner Spawner;
+    public TrailRenderer Trail1;
+    public TrailRenderer Trail2;
+    public TrailRenderer Trail3;
+    //public GameObject[] PlayerSprites;
 
     private int _sizeTriggerCounter;
-    private GameManager _gm;
+    [HideInInspector]
+    public GameManager _gm;
     private int _subSizeCount;
     private float _growfactor1;
     private float _growfactor2;
@@ -103,13 +108,20 @@ public class Player : MonoBehaviour
         {
             Animator anim = transform.GetChild(level - 1).gameObject.GetComponent<Animator>();
             anim.SetBool("IsEvol", true);
-        }
+            _gm.PlayerEvolving = true;
+            Camera.main.GetComponent<CameraFeats>().ZoomOut(true);
+            if(level == 1)
+            {
+                GetComponent<Movement>().Speed += 4;
+            }
+            else if(level == 2)
+            {
+                GetComponent<Movement>().Speed += 8;
+            }
 
-        if (level != 0)
-		{
-			Camera.main.GetComponent<CameraFeats>().ZoomOut(true);
-            GetComponent<Movement>().Speed += 1;
-		}
+            Spawner.RadiusFar += 1.5f;
+            _subSizeCount = 0;
+        }
 	}
 
     /// <summary>
@@ -133,7 +145,7 @@ public class Player : MonoBehaviour
         else if (_gm.Level == 2)
         {
             child = transform.GetChild(1);
-            if (tag == "Collectibles1")
+            if (tag == "Collectable1")
             {
                 _subSizeCount++;
                 if (_subSizeCount < 10)
@@ -155,8 +167,8 @@ public class Player : MonoBehaviour
         }
         else if (_gm.Level == 3)
         {
-            child = transform.GetChild(1);
-            if (tag == "Collectibles2")
+            child = transform.GetChild(2);
+            if (tag == "Collectable2")
             {
                 _subSizeCount++;
                 if (_subSizeCount < 3)
@@ -188,8 +200,70 @@ public class Player : MonoBehaviour
                 }
             }
 
-			Camera.main.GetComponent<CameraFeats>().ZoomOut(false);
+            Spawner.RadiusFar += 0.04f;
+            if(_gm.Level == 1)
+            {
+                Trail1.time += 0.04f;
+            }
+            else if(_gm.Level == 2)
+            {
+                Trail2.time += 0.04f;
+            }
+            else if (_gm.Level == 3)
+            {
+                Trail3.time += 0.04f;
+            }
+
+            Camera.main.GetComponent<CameraFeats>().ZoomOut(false);
             _gm.CheckLevelChange(Size);
+        }
+    }
+
+    public void OnCollisionStay2D(Collision2D collision)
+    {
+        DeactivateTrail();
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        ActivateTrail();
+    }
+
+    /// <summary>
+    /// Deactivates level's respective trail
+    /// </summary>
+    public void DeactivateTrail()
+    {
+        if (_gm.Level == 1)
+        {
+            Trail1.enabled = false;
+        }
+        else if (_gm.Level == 2)
+        {
+            Trail2.enabled = false;
+        }
+        else if (_gm.Level == 3)
+        {
+            Trail3.enabled = false;
+        }
+    }
+
+    /// <summary>
+    /// Activates level's respective trail
+    /// </summary>
+    public void ActivateTrail()
+    {
+        if (_gm.Level == 1)
+        {
+            Trail1.enabled = true;
+        }
+        else if (_gm.Level == 2)
+        {
+            Trail2.enabled = true;
+        }
+        else if (_gm.Level == 3)
+        {
+            Trail3.enabled = true;
         }
     }
 
@@ -202,7 +276,7 @@ public class Player : MonoBehaviour
 
         for(int i = 0; i < SizeTriggersLevel.Length; i++)
         {
-            if(Size == SizeTriggersLevel[i])
+            if(Size == SizeTriggersLevel[i] || Size <= 0)
             {
                 shrink = false;
                 break;

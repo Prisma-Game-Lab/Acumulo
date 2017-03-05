@@ -50,7 +50,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1112904064476246}
   serializedVersion: 5
   lengthInSec: 5
-  simulationSpeed: 1
+  speed: 1
   looping: 1
   prewarm: 0
   playOnAwake: 1
@@ -2716,7 +2716,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -149388255
   m_SortingOrder: 0
   m_RenderMode: 1
   m_SortMode: 3

@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: bfc599da01018d545a65bd43d4feeb67
+timeCreated: 1488554233
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Goethe
+  fontNames:
+  - Goethe
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -22,6 +22,19 @@ public class GameManager : MonoBehaviour {
     static private GameObject _pauseCanvas;
     static private float _volume;
     private GameObject _spawner;
+    private bool _playerEvolving;
+
+    public bool PlayerEvolving
+    {
+        get
+        {
+            return _playerEvolving;
+        }
+        set
+        {
+            _playerEvolving = value;
+        }
+    }
 
     public int Level
     {
@@ -57,14 +70,48 @@ public class GameManager : MonoBehaviour {
 		_score = 0;
         //_volume = AudioSources[0].volume;
         _level = 1;
+        _playerEvolving = false;
 
         for (int i = 1; i < ActiveAudios.Length; i++)
         {
             ActiveAudios[i] = false;
         }
-    }
 
-	void End()
+        // PARA PODER RODAR DE QUALQUER CENA ////////////////////////////////
+        GameObject ui = GameObject.FindGameObjectWithTag("UI");            //
+        if (ui)                                                            //
+        {                                                                  //
+            _scoreText = ui.transform.GetChild(0).GetComponent<Text>();    //
+            _timeText = ui.transform.GetChild(1).GetComponent<Text>();     //
+                                                                           //
+        }                                                                  //
+        Time.timeScale = 1;                                                //  
+                                                                           //
+        if (!_playerObj)                                                   //  
+        {                                                                  //
+            _playerObj = GameObject.FindGameObjectWithTag("Player");       //
+        }                                                                  //
+                                                                           //
+        if (_playerObj)                                                    //
+        {                                                                  //
+            _player = _playerObj.GetComponent<Player>();                   //
+            _player.ChangeLevel(0);                                        //
+        }                                                                  //
+                                                                           //
+        if (!_spawner)                                                     //
+        {                                                                  //
+            _spawner = GameObject.Find("spawners");                        //
+        }                                                                  //
+                                                                           //
+        for (int i = 1; i < ActiveAudios.Length; i++)                      //
+        {                                                                  //
+            ActiveAudios[i] = false;                                       //
+            AudioSources[i].volume = 0;                                    //
+        }                                                                  //
+        /////////////////////////////////////////////////////////////////////
+    }                                                                      
+                                                                           
+    void End()
     {
         SceneManager.LoadScene("EndingPlanetSaved");
     }
@@ -78,7 +125,7 @@ public class GameManager : MonoBehaviour {
         }
         if(_timeText)
         {
-            _timeText.text = "Time: " + (int)(time - Time.timeSinceLevelLoad);
+            _timeText.text = "Tempo restante: " + (int)(time - Time.timeSinceLevelLoad);
         }
         if (((int)(time- Time.timeSinceLevelLoad) == 0) && (SceneManager.GetActiveScene().name == "DevScene"))
         {
@@ -176,7 +223,7 @@ public class GameManager : MonoBehaviour {
     public void ScoredTrashTriggered(float score)
     {
         _score += score;
-        _scoreText.text = "Score: " + _score;
+        _scoreText.text = "Pontuação: " + _score;
     }
 
     public void CheckLevelChange(int size)
@@ -194,6 +241,11 @@ public class GameManager : MonoBehaviour {
             _spawner.transform.FindChild("spawner Latinha").gameObject.SetActive(false);
             _spawner.transform.FindChild("spawner Garrafa").gameObject.SetActive(false);
             Destroy(GameObject.Find("Level1Trash"));
+            GameObject[] trashs = GameObject.FindGameObjectsWithTag("Collectable1");
+            foreach(GameObject trash in trashs)
+            {
+                Destroy(trash);
+            }
 
             _player.ChangeLevel(2);
             _level++;
@@ -223,7 +275,7 @@ public class GameManager : MonoBehaviour {
     public void ReduceScore(float score)
     {
         _score -= score;
-        _scoreText.text = "Score: " + _score;
+        _scoreText.text = "Pontuação: " + _score;
     }
 
     /// <summary>

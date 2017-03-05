@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+using UnityEngine;
+using UnityStandardAssets;
 using System.Collections;
 
 public class CameraFollow : MonoBehaviour {
@@ -8,18 +9,47 @@ public class CameraFollow : MonoBehaviour {
     public Vector3 specificVector;
     private PolygonCollider2D _mapEdges;
 
-    // Use this for initialization
-    void Start () {
+	private UnityStandardAssets.ImageEffects.VignetteAndChromaticAberration VigAndChroAberEffect;
+	private UnityStandardAssets.ImageEffects.TiltShift TiltShiftEffect;
+	private UnityStandardAssets.ImageEffects.ColorCorrectionCurves[] ColorCorrectEffects;
 
+	// Use this for initialization
+	void Awake () {
+		VigAndChroAberEffect = GetComponent<UnityStandardAssets.ImageEffects.VignetteAndChromaticAberration>();
+		TiltShiftEffect = GetComponent<UnityStandardAssets.ImageEffects.TiltShift>();
+		ColorCorrectEffects = GetComponents<UnityStandardAssets.ImageEffects.ColorCorrectionCurves>();
 	}
-	
+	void Start()
+	{
+		Component[] components = GameObject.Find("Main Camera").GetComponents<Component>();
+		foreach (Component c in components)
+		{
+			Debug.Log(c.GetType());
+		}
+	}
+
 	// Update is called once per frame
 	void Update () {
+		VigAndChroAberEffect.enabled = false;
+		TiltShiftEffect.enabled = false;
+		ColorCorrectEffects[1].enabled = false;
+
+		if (ColorCorrectEffects[1].enabled == false)
+		{
+			ColorCorrectEffects[1].enabled = false;
+		}
+
         specificVector = new Vector3(Player.transform.position.x, Player.transform.position.y, transform.position.z);
 
         gameObject.transform.position = Vector3.Lerp(transform.position,specificVector,smoothSpeed*Time.deltaTime);
         _mapEdges = GameObject.FindGameObjectWithTag("Bounds").GetComponent<PolygonCollider2D>();
 
+		if(Player.GetComponent<Movement>().Speed < 4)
+		{
+			VigAndChroAberEffect.enabled = true;
+			TiltShiftEffect.enabled = true;
+			ColorCorrectEffects[1].enabled = true;
+		}
     }
 
     private Bounds GetCameraBounds()
